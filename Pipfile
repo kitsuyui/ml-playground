@@ -13,6 +13,9 @@ jupyter = "*"
 notebook = "*"
 
 [dev-packages]
+black = "*"
+pytest = "*"
+isort = "*"
 
 [requires]
 python_version = "3.10"
