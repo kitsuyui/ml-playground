@@ -11,6 +11,8 @@ sklearn = "*"
 einops = "*"
 jupyter = "*"
 notebook = "*"
+matplotlib = "*"
+pillow = "*"
 
 [dev-packages]
 black = "*"
