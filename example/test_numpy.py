@@ -323,3 +323,116 @@ def test_numpy_matrix_operations() -> None:
         ]
     )
     assert (x_reshaped == x_reshaped_tobe).all()
+
+
+def test_numpy_convenient_methods() -> None:
+    # zeros
+    # en: create an array filled with zeros
+    # ja: 0 で埋められた配列を作成する
+    x = np.zeros((2, 3))
+    assert x.shape == (2, 3)
+    assert (x == np.array([[0, 0, 0], [0, 0, 0]])).all()
+
+    # ones
+    # en: create an array filled with ones
+    # ja: 1 で埋められた配列を作成する
+    x = np.ones((2, 3))
+    assert x.shape == (2, 3)
+    assert (x == np.array([[1, 1, 1], [1, 1, 1]])).all()
+
+    # full
+    # en: create an array filled with a given value
+    # ja: 指定した値で埋められた配列を作成する
+    x = np.full((2, 3), 3.14)
+    assert x.shape == (2, 3)
+    assert (x == np.array([[3.14, 3.14, 3.14], [3.14, 3.14, 3.14]])).all()
+
+    # random
+    # en: create an array filled with random values
+    # ja: ランダムな値で埋められた配列を作成する
+    x = np.random.random((2, 3))
+    assert x.shape == (2, 3)
+    assert x.dtype == np.float64
+
+    # sum
+    # en: sum of all elements
+    # ja: 全要素の和
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.sum() == 21
+
+    # mean
+    # en: mean of all elements
+    # ja: 全要素の平均
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.mean() == 3.5
+
+    # std
+    # en: standard deviation of all elements
+    # ja: 全要素の標準偏差
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.std() == 1.707825127659933
+
+    # max
+    # en: maximum value of all elements
+    # ja: 全要素の最大値
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.max() == 6
+
+    # min
+    # en: minimum value of all elements
+    # ja: 全要素の最小値
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.min() == 1
+
+    # like functions
+    # en: functions that return an array with the same shape as the input array
+    # ja: 入力配列と同じ形状の配列を返す関数
+
+    # zeros_like
+    # en: create an array filled with zeros
+    # ja: 0 で埋められた配列を作成する
+    x = np.array([1, 2, 3])
+    x_zeros_like = np.zeros_like(x)
+    assert x_zeros_like.shape == (3,)
+    assert (x_zeros_like == np.array([0, 0, 0])).all()
+
+    # ones_like
+    # en: create an array filled with ones
+    # ja: 1 で埋められた配列を作成する
+    x = np.array([1, 2, 3])
+    x_ones_like = np.ones_like(x)
+    assert x_ones_like.shape == (3,)
+    assert (x_ones_like == np.array([1, 1, 1])).all()
+
+    # full_like
+    # en: create an array filled with a given value
+    # ja: 指定した値で埋められた配列を作成する
+    x = np.array([1, 2, 3])
+    x_full_like = np.full_like(x, 3.14, dtype=np.float64)
+    assert x_full_like.shape == (3,)
+    assert (x_full_like == np.array([3.14, 3.14, 3.14])).all()
