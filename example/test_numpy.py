@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 
 def test_numpy_array_basic_algebra() -> None:
@@ -436,3 +437,116 @@ def test_numpy_convenient_methods() -> None:
     x_full_like = np.full_like(x, 3.14, dtype=np.float64)
     assert x_full_like.shape == (3,)
     assert (x_full_like == np.array([3.14, 3.14, 3.14])).all()
+
+
+def test_numpy_indexing_and_slices() -> None:
+    """Indexing and slices
+
+    ja: numpy の多次元配列のインデクスにはおもしろい記法があるので注意する
+    en: numpy has some interesting indexing syntax for multidimensional arrays
+    """
+
+    # n-th element
+    # en: get the n-th element
+    # ja: n 番目の要素を取得する
+    x = np.array([111, 222, 333])
+    assert x[0] == 111
+    assert x[1] == 222
+    assert x[2] == 333
+    assert x[0].dtype == np.int64
+
+    # n-th element (negative index)
+    # en: get the n-th element from the end
+    # ja: 負のインデックスは末尾からのインデックス
+    x = np.array([111, 222, 333])
+    assert x[-1] == 333
+    assert x[-2] == 222
+    assert x[-3] == 111
+
+    # n-th element (over index)
+    # en: get the n-th element from the end
+    # ja: インデックスが配列の長さを超えるとエラーになる
+    x = np.array([111, 222, 333])
+    with pytest.raises(IndexError):
+        x[3]
+
+    # n-th element (over negative index)
+    # en: get the n-th element from the end
+    # ja: 負のインデックスが配列の長さを超えるとエラーになる
+    x = np.array([111, 222, 333])
+    with pytest.raises(IndexError):
+        x[-4]
+
+    # slice
+    # en: get a slice of the array
+    # ja: 配列のスライスを取得する
+    x = np.array([111, 222, 333])
+    assert (x[0:2] == np.array([111, 222])).all()
+    assert (x[1:3] == np.array([222, 333])).all()
+    assert (x[0:3] == np.array([111, 222, 333])).all()
+    assert (x[0:4] == np.array([111, 222, 333])).all()
+    assert (x[0:0] == np.array([])).all()
+    assert (x[0:-1] == np.array([111, 222])).all()
+    assert (x[0:-2] == np.array([111])).all()
+    assert (x[0:-3] == np.array([])).all()
+
+    # n-dim array
+    # en: get the n-th element of the n-dim array
+    # ja: n 次元配列の n 番目の要素を取得する
+    x = np.array(
+        [
+            [111, 222, 333],
+            [444, 555, 666],
+        ]
+    )
+    # en: get the 1st element of the 1st row. Python's list is x[0][0]
+    # en: but this is more readable
+    # ja: n 行 n 列の要素を取得する。Python のリストの x[0][0] と同じだが,
+    # ja: 慣れればこちらの方がわかりやすい
+    assert x[0, 0] == 111
+    assert x[0, 1] == 222
+    assert x[0, 2] == 333
+    assert x[1, 0] == 444
+    assert x[1, 1] == 555
+    assert x[1, 2] == 666
+
+    assert x[0][0] == 111
+    assert x[0][1] == 222
+    assert x[0][2] == 333
+    assert x[1][0] == 444
+    assert x[1][1] == 555
+    assert x[1][2] == 666
+
+    # n-dim array (negative index)
+    # en: get the n-th element of the n-dim array from the end
+    # ja: n 次元配列の n 番目の要素を末尾から取得する
+    x = np.array(
+        [
+            [111, 222, 333],
+            [444, 555, 666],
+        ]
+    )
+    assert x[-1, -1] == 666
+    assert x[-1, -2] == 555
+    assert x[-1, -3] == 444
+    assert x[-2, -1] == 333
+    assert x[-2, -2] == 222
+    assert x[-2, -3] == 111
+
+    # n-dim array slice
+    # en: get a slice of the n-dim array
+    # ja: n 次元配列のスライスを取得する
+    x = np.array(
+        [
+            [111, 222, 333],
+            [444, 555, 666],
+        ]
+    )
+    assert (x[0:2, 0:2] == np.array([[111, 222], [444, 555]])).all()
+    assert (x[0:2, 1:3] == np.array([[222, 333], [555, 666]])).all()
+    assert (x[0:2, 0:3] == np.array([[111, 222, 333], [444, 555, 666]])).all()
+    assert (x[0:2, 0:4] == np.array([[111, 222, 333], [444, 555, 666]])).all()
+    assert (x[0:2, 0:0] == np.array([[], []])).all()
+    assert (x[0:2, 0:-1] == np.array([[111, 222], [444, 555]])).all()
+    assert (x[0:2, 0:-2] == np.array([[111], [444]])).all()
+    assert (x[0:2, 0:-3] == np.array([[], []])).all()
