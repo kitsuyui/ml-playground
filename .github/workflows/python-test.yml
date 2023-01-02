@@ -22,6 +22,15 @@ jobs:
       - name: Lint
         run: pipenv run lint
 
+      - name: Check Python version
+        run: |
+          actual_version=$(pipenv run python --version)
+          expected_version="Python ${{ matrix.python }}"
+          if [ "$actual_version" == *"$expected_version"* ]; then
+            echo "Expected $expected_version, but got $actual_version"
+            exit 1
+          fi
+
       - name: Test
         run: pipenv run test
 
