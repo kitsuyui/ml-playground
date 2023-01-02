@@ -66,3 +66,121 @@ def test_numpy_array_basic_algebra() -> None:
     # en: Element-wise power (2): scalar power
     # ja: スカラーのべき乗
     assert (np.array([1, 2, 3]) ** 2 == np.array([1, 4, 9])).all()
+
+
+def test_numpy_types() -> None:
+    """Types of numpy arrays.
+
+    en: Example of types of numpy arrays
+    ja: numpy の配列の型の見本
+    """
+
+    # int64
+    x = np.array(
+        [1, 2, 3, 4, 5]
+    )  # en: Python's int list is converted to int64 by default
+    assert x.dtype == np.int64
+    assert x.size == 5, "array size is 5"
+    assert x.itemsize == 8, "int64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
+
+    # float64
+    x = np.array(
+        [1.0, 2.0, 3.0, 4.0, 5.0]
+    )  # en: Python's float list is converted to float64 by default
+    assert x.dtype == np.float64
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 8, "float64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
+
+    # complex128
+    x = np.array([1.0 + 1.0j, 2.0 + 2.0j, 3.0 + 3.0j, 4.0 + 4.0j, 5.0 + 5.0j])
+    assert x.dtype == np.complex128
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 16, "complex128 is 16 bytes"
+    assert x.size * x.itemsize == 80, "array byte size is 80"
+
+    # int32
+    x = np.array(
+        [1, 2, 3, 4, 5], dtype=np.int32
+    )  # explicit type specification is required
+    assert x.dtype == np.int32
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 4, "int32 is 4 bytes"
+    assert x.size * x.itemsize == 20, "array byte size is 20"
+
+    # float32
+    x = np.array(
+        [1.0, 2.0, 3.0, 4.0, 5.0], dtype=np.float32
+    )  # explicit type specification is required
+    assert x.dtype == np.float32
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 4, "float32 is 4 bytes"
+    assert x.size * x.itemsize == 20, "array byte size is 20"
+
+    # complex64
+    x = np.array(
+        [1.0 + 1.0j, 2.0 + 2.0j, 3.0 + 3.0j, 4.0 + 4.0j, 5.0 + 5.0j],
+        dtype=np.complex64,
+    )  # explicit type specification is required
+    assert x.dtype == np.complex64
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 8, "complex64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
+
+    # mixed
+    x = np.array(
+        [1, 2, 3, 4, 5.0]
+    )  # en: mixed int and float is converted to float
+    assert x.dtype == np.float64
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 8, "float64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
+
+    # string (fixed length)
+    x = np.array(["a", "b", "c", "d", "e"])
+    assert x.dtype == np.dtype("U1")
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 4, "U1 is 4 byte"
+    assert x.size * x.itemsize == 20, "array byte size is 20"
+
+    # string (variable length)
+    x = np.array(
+        ["a", "bb", "ccc", "dddd", "eeeee"]
+    )  # en: The length of the string with the maximum length is used
+    assert x.dtype == np.dtype("U5")
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 20, "U5 is 20 bytes"
+    assert x.size * x.itemsize == 100, "array byte size is 100"
+
+    # unicode (fixed length)
+    x = np.array(["あ", "い", "う", "え", "お"])
+    assert x.dtype == np.dtype("U1")
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 4, "U1 is 1 byte"
+    assert x.size * x.itemsize == 20, "array byte size is 20"
+
+    # unicode (Emoji ZWJ Sequence)
+    # Emoji ZWJ Sequence is a sequence of Unicode characters and
+    # ZERO WIDTH JOINER (U+200D) that is used to represent a single emoji.
+    # Therefore, the length of a single character is not 1 but 7
+    x = np.array(["👨‍👩‍👧‍👦", "👨‍👩‍👧‍👦", "👨‍👩‍👧‍👦", "👨‍👩‍👧‍👦", "👨‍👩‍👧‍👦"])
+    assert x.dtype == np.dtype("<U7")
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 28, "U7 is 28 bytes"
+    assert x.size * x.itemsize == 140, "array byte size is 140"
+
+    # addition of float and int
+    # ja: int と float で演算を行う場合に左右の計算順序には関係なく float64 に変換する
+    # en: When performing operations on int and float, regardless of order,
+    # en: it is converted to float64
+    x = np.array([1, 2, 3, 4, 5]) + np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+    assert x.dtype == np.float64
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 8, "float64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
+    x = np.array([1.0, 2.0, 3.0, 4.0, 5.0]) + np.array([1, 2, 3, 4, 5])
+    assert x.dtype == np.float64
+    assert x.size == 5, "size is 5"
+    assert x.itemsize == 8, "float64 is 8 bytes"
+    assert x.size * x.itemsize == 40, "array byte size is 40"
