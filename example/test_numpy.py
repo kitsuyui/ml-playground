@@ -184,3 +184,48 @@ def test_numpy_types() -> None:
     assert x.size == 5, "size is 5"
     assert x.itemsize == 8, "float64 is 8 bytes"
     assert x.size * x.itemsize == 40, "array byte size is 40"
+
+
+def test_numpy_n_dimention_array() -> None:
+    """numpy.ndarray
+
+    en: numpy.ndarray as n-dimensional array/tensor
+    ja: numpy.ndarray を n 次元配列・テンソルとして扱う
+    """
+
+    # 1D tensor (vector)
+    x = np.array([1, 2, 3])
+    assert x.ndim == 1  # number of dimensions
+    assert x.shape == (3,)  # shape of array
+    assert x.size == 3  # number of elements
+    assert x.dtype == np.int64  # data type
+    assert x.itemsize == 8  # size of each element
+    assert x.nbytes == 24  # total size of array
+
+    # 2D tensor (matrix)
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.ndim == 2
+    assert x.shape == (2, 3)  # en: (row, column), ja: (行, 列)
+    assert x.size == 6
+    assert x.dtype == np.int64
+    assert x.itemsize == 8
+    assert x.nbytes == 48
+
+    # 3D tensor
+    x = np.array(
+        [
+            [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],
+            [[13, 14, 15, 16], [17, 18, 19, 20], [21, 22, 23, 24]],
+        ]
+    )
+    assert x.ndim == 3
+    assert x.shape == (2, 3, 4)
+    assert x.size == 24
+    assert x.dtype == np.int64
+    assert x.itemsize == 8
+    assert x.nbytes == 192
