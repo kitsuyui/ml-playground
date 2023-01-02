@@ -229,3 +229,97 @@ def test_numpy_n_dimention_array() -> None:
     assert x.dtype == np.int64
     assert x.itemsize == 8
     assert x.nbytes == 192
+
+
+def test_numpy_matrix_operations() -> None:
+    """Matrix operations with numpy.ndarray
+
+    en: Matrix operations with numpy.ndarray
+    ja: numpy.ndarray による行列演算
+    """
+
+    # transpose
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.shape == (2, 3)
+    x_t = x.T  # en: transpose, ja: 転置
+    assert x.T.shape == (3, 2)
+    x_t_tobe = np.array(
+        [
+            [1, 4],
+            [2, 5],
+            [3, 6],
+        ]
+    )
+    assert (x_t == x_t_tobe).all()
+
+    # dot product
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    y = np.array(
+        [
+            [1, 2],
+            [3, 4],
+            [5, 6],
+        ]
+    )
+    assert x.shape == (2, 3)
+    assert y.shape == (3, 2)
+    z = np.dot(x, y)  # en: dot product, ja: 内積
+    assert z.shape == (2, 2)
+    z_tobe = np.array(
+        [
+            [22, 28],
+            [49, 64],
+        ]
+    )
+    assert (z == z_tobe).all()
+
+    # dot product (shorter way)
+    z2 = x @ y  # en: dot product, ja: 内積
+    assert (z2 == z_tobe).all()
+
+    # element-wise multiplication
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    y = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.shape == (2, 3)
+    assert y.shape == (2, 3)
+    z = x * y  # en: element-wise multiplication, ja: 要素ごとの積
+    assert z.shape == (2, 3)
+
+    # reshape
+    x = np.array(
+        [
+            [1, 2, 3],
+            [4, 5, 6],
+        ]
+    )
+    assert x.shape == (2, 3)
+    x_reshaped = x.reshape(3, 2)  # en: reshape, ja: 変形
+    assert x_reshaped.shape == (3, 2)
+    x_reshaped_tobe = np.array(
+        [
+            [1, 2],
+            [3, 4],
+            [5, 6],
+        ]
+    )
+    assert (x_reshaped == x_reshaped_tobe).all()
