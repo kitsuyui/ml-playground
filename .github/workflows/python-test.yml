@@ -17,36 +17,31 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "${{ matrix.python }}"
-          cache: pipenv
 
-      - name: Install pipenv
-        run: |
-          python -m pip install pipenv
-          pipenv --python "${{ matrix.python }}"
+      - name: Set up poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Cache
         id: cache-python
         uses: actions/cache@v3
         with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/Pipfile.lock') }}
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/Pipfile.lock') }}
+            ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
             ${{ runner.os }}-build-${{ matrix.python }}-
             ${{ runner.os }}-
 
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
-        run: |
-          pipenv sync --dev
-          pipenv clean
+        run: poetry install
 
       - name: Lint
-        run: pipenv run lint
+        run: poetry run make lint
 
       - name: Check Python version
         run: |
-          actual_version=$(pipenv run python --version)
+          actual_version=$(poetry run python --version)
           expected_version="Python ${{ matrix.python }}"
           if [ "$actual_version" == *"$expected_version"* ]; then
             echo "Expected $expected_version, but got $actual_version"
@@ -54,10 +49,10 @@ jobs:
           fi
 
       - name: Test
-        run: pipenv run pytest --cov=example example --doctest-modules --cov-report=xml
+        run: poetry run pytest --cov=example example --doctest-modules --cov-report=xml
 
       - name: Upload coverage report to Codecov
-        if: matrix.python == '3.10'
+        if: matrix.python == '3.11'
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

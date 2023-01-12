@@ -1,2 +1,35 @@
 [tool.black]
 line-length = 79
+
+[tool.poetry]
+name = "ml-playground"
+version = "0.1.0"
+description = ""
+authors = ["kitsuyui <kitsuyui@kitsuyui.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+torch = "*"
+numpy = "*"
+scipy = "*"
+scikit-learn = "*"
+einops = "*"
+jupyter = "*"
+notebook = "*"
+matplotlib = "*"
+pillow = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+pytest = "*"
+isort = "*"
+pyupgrade = "*"
+pytest-cov = "*"
+flake8 = "*"
+mypy = "*"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
