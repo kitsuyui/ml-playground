@@ -11,7 +11,10 @@ packages = []
 
 [tool.poetry.dependencies]
 python = "^3.8"
-torch = "*"
+torch = [
+    { version = "*", extras = ["cpu"], markers = "platform_system == 'Linux'" },
+    { version = "*", markers = "platform_system == 'Darwin'" },
+]
 numpy = "*"
 scipy = "*"
 scikit-learn = "*"
