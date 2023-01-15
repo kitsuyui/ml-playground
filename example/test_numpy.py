@@ -550,3 +550,36 @@ def test_numpy_indexing_and_slices() -> None:
     assert (x[0:2, 0:-1] == np.array([[111, 222], [444, 555]])).all()
     assert (x[0:2, 0:-2] == np.array([[111], [444]])).all()
     assert (x[0:2, 0:-3] == np.array([[], []])).all()
+
+
+def test_random_with_seed() -> None:
+    """np.random"""
+    # en: np.random and seed
+    # ja: 乱数の生成とシード値の固定
+
+    # without seed
+    x1 = np.random.rand()
+    x2 = np.random.rand()
+    assert x1 != x2
+
+    # with seed
+    np.random.seed(0)
+    x1 = np.random.rand()
+    np.random.seed(0)
+    x2 = np.random.rand()
+    assert x1 == x2
+
+    np.random.seed(0)
+    assert np.random.rand(3) == pytest.approx(
+        np.array([0.5488135, 0.71518937, 0.60276338])
+    )
+
+    np.random.seed(0)
+    assert np.random.rand(2, 3) == pytest.approx(
+        np.array(
+            [
+                [0.54881350, 0.71518937, 0.60276338],
+                [0.54488318, 0.42365480, 0.64589411],
+            ]
+        )
+    )
