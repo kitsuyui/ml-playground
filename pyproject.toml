@@ -12,8 +12,14 @@ packages = []
 [tool.poetry.dependencies]
 python = "^3.8"
 torch = [
-    { version = "*", extras = ["cpu"], markers = "platform_system == 'Linux'" },
-    { version = "*", markers = "platform_system == 'Darwin'" },
+    # markers are defined in PEP 508 and PEP 496
+    # https://peps.python.org/pep-0496/
+    # https://peps.python.org/pep-0508/
+    # following settings are for GitHub Actions (CPU only).
+    { version = "*", extras = ["cpu"], markers = "sys_platform == 'linux'" },
+    # NOTE: PyPI pytorch is not supported on Python 3.11 in macOS yet.
+    { version = "*", extras = ["cpu"], markers = "sys_platform == 'darwin' and python_version > '3.10'" },
+    { version = "*", markers = "sys_platform == 'darwin'" },
 ]
 numpy = "*"
 scipy = "*"
@@ -33,6 +39,7 @@ pyupgrade = "*"
 pytest-cov = "*"
 flake8 = "*"
 mypy = "*"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
