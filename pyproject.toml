@@ -39,6 +39,7 @@ pyupgrade = "*"
 pytest-cov = "*"
 flake8 = "*"
 mypy = "*"
+syrupy = "^3.0.6"
 
 [build-system]
 requires = ["poetry-core"]
