@@ -50,13 +50,17 @@ flake8 = "*"
 mypy = "*"
 syrupy = "*"
 poethepoet = "*"
+nbmake = "^1.3.5"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-test = "pytest"
+test = { shell = """
+pytest &&
+pytest --nbmake notebooks
+""" }
 coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
 format = {shell = """
 isort example ;
