@@ -49,6 +49,9 @@ jobs:
           fi
 
       - name: Test
+        run: poetry run poe test
+
+      - name: Coverage
         run: poetry run poe coverage-xml
 
       - name: Upload coverage report to Codecov
