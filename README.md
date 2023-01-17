@@ -1,7 +1,13 @@
 # ml-playground
 
 [![codecov](https://codecov.io/gh/kitsuyui/ml-playground/branch/main/graph/badge.svg?token=DW0671X9QF)](https://codecov.io/gh/kitsuyui/ml-playground)
-[![Python](http://github-actions.40ants.com/kitsuyui/ml-playground/matrix.svg)](https://github.com/kitsuyui/ml-playground/actions/workflows/python-test.yml?query=branch%3Amain)
+
+[
+![python-v3.8](https://img.shields.io/badge/python-v3.8-blue)
+![python-v3.9](https://img.shields.io/badge/python-v3.9-blue)
+![python-v3.10](https://img.shields.io/badge/python-v3.10-blue)
+![python-v3.11](https://img.shields.io/badge/python-v3.11-blue)
+](https://github.com/kitsuyui/ml-playground/actions/workflows/python-test.yml?query=branch%3Amain)
 
 ## en: What is this?
 
