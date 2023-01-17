@@ -38,6 +38,7 @@ pillow = "*"
 spacy = "*"
 pandas = "*"
 geopy = "*"
+sympy = "*"
 
 
 [tool.poetry.group.dev.dependencies]
