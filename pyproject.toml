@@ -49,7 +49,23 @@ pytest-cov = "*"
 flake8 = "*"
 mypy = "*"
 syrupy = "*"
+poethepoet = "*"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+test = "pytest"
+coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
+format = {shell = """
+isort example ;
+black example ;
+pyupgrade --py37-plus example/*.py
+"""}
+check = {shell = """
+isort --check-only --diff example ;
+black --check --diff example ;
+flake8 example ;
+mypy example
+"""}
