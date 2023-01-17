@@ -34,10 +34,12 @@ jobs:
 
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
-        run: poetry install
+        run: |
+          poetry install
+          poetry self add 'poethepoet[poetry_plugin]'
 
       - name: Lint
-        run: poetry run make lint
+        run: poetry poe check
 
       - name: Check Python version
         run: |
@@ -49,7 +51,7 @@ jobs:
           fi
 
       - name: Test
-        run: poetry run pytest --cov=example example --doctest-modules --cov-report=xml
+        run: poetry poe coverage-xml
 
       - name: Upload coverage report to Codecov
         if: matrix.python == '3.11'
