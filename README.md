@@ -1,7 +1,6 @@
 # ml-playground
 
 [![codecov](https://codecov.io/gh/kitsuyui/ml-playground/branch/main/graph/badge.svg?token=DW0671X9QF)](https://codecov.io/gh/kitsuyui/ml-playground)
-
 [
 ![python-v3.8](https://img.shields.io/badge/python-v3.8-blue)
 ![python-v3.9](https://img.shields.io/badge/python-v3.9-blue)
