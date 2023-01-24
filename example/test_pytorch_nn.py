@@ -124,3 +124,132 @@ def test_nn_tanh() -> None:
     assert pytest.approx(y.subs(x, 1.0)) == 0.761594155955765
     assert sympy.limit(y, x, sympy.Float("-inf")) == -1.0
     assert sympy.limit(y, x, sympy.Float("inf")) == 1.0
+
+
+def test_cross_entropy_loss() -> None:
+    # https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss
+
+    # 100% sure
+    loss = nn.CrossEntropyLoss()
+    input = torch.tensor([[0.0, 100.0]])
+    assert input.shape == torch.Size([1, 2])
+    target = torch.tensor([1])
+    assert target.shape == torch.Size([1])
+    actual = loss(input, target)
+    tobe = torch.tensor(0.0)
+    assert torch.allclose(actual, tobe)
+
+    # fifty fifty
+    loss = nn.CrossEntropyLoss()
+    input = torch.tensor([[50.0, 50.0]])
+    assert input.shape == torch.Size([1, 2])
+    target = torch.tensor([1])
+    assert target.shape == torch.Size([1])
+    actual = loss(input, target)
+    tobe = torch.tensor(0.6931472)
+    assert torch.allclose(actual, tobe)
+
+    # multi-class, multi-batch
+    loss = nn.CrossEntropyLoss()
+    input = torch.tensor(
+        [
+            [0.0, 100.0, 0.0],
+            [100.0, 0.0, 0.0],
+            [0.0, 0.0, 100.0],
+            [0.0, 0.0, 100.0],
+        ]
+    )
+    assert input.shape == torch.Size([4, 3])
+    target = torch.tensor([1, 0, 2, 2])
+    assert target.shape == torch.Size([4])
+    actual = loss(input, target)
+    tobe = torch.tensor(0.0)
+    assert torch.allclose(actual, tobe)
+
+    # multi-class, multi-batch
+    loss = nn.CrossEntropyLoss()
+    input = torch.tensor(
+        [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
+    )
+    assert input.shape == torch.Size([4, 3])
+    target = torch.tensor([1, 0, 2, 2])
+    assert target.shape == torch.Size([4])
+    actual = loss(input, target)
+    tobe = torch.tensor(1.0986123)
+    assert torch.allclose(actual, tobe)
+
+
+def test_mse_loss() -> None:
+    # https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html#torch.nn.MSELoss
+    loss = nn.MSELoss()
+    input = torch.tensor([[0.0, -1.0]])
+    assert input.shape == torch.Size([1, 2])
+    target = torch.tensor([[0.0, 1.0]])
+    assert target.shape == torch.Size([1, 2])
+    actual = loss(input, target)
+    tobe = torch.tensor(2.0)
+    assert torch.allclose(actual, tobe)
+
+    # multi-batch
+    loss = nn.MSELoss()
+    input = torch.tensor([[0.0, -1.0], [0.0, -1.0], [0.0, -1.0], [-1.0, 0.0]])
+    assert input.shape == torch.Size([4, 2])
+    target = torch.tensor([[0.0, 1.0], [0.0, 1.0], [0.0, -1.0], [0.0, 0.0]])
+    assert target.shape == torch.Size([4, 2])
+    actual = loss(input, target)
+    tobe = torch.tensor(1.1250)
+    assert torch.allclose(actual, tobe)
+
+
+def test_regression_loss_functions() -> None:
+    target = torch.tensor([0.1, 0.2, 0.3, 0.4])
+
+    input1 = torch.tensor([0.1, 0.0, 0.0, 0.0])
+    input2 = torch.tensor([0.1, 0.2, 0.0, 0.0])
+    input3 = torch.tensor([0.1, 0.2, 0.3, 0.0])
+    input4 = torch.tensor([0.1, 0.2, 0.3, 0.4])
+
+    # loss(input1, target) > loss(input2, target) > loss(input3, target) > loss(input4, target) == 0
+
+    loss_functions = (
+        nn.MSELoss(),
+        nn.L1Loss(),
+        nn.SmoothL1Loss(),
+        nn.HuberLoss(),
+    )
+
+    for loss_function in loss_functions:
+        assert loss_function(input1, target) > loss_function(
+            input2, target
+        ), f"{loss_function}"
+        assert loss_function(input2, target) > loss_function(
+            input3, target
+        ), f"{loss_function}"
+        assert loss_function(input3, target) > loss_function(
+            input4, target
+        ), f"{loss_function}"
+        assert loss_function(input4, target) == 0.0, f"{loss_function}"
+
+
+def test_classification_loss_functions() -> None:
+    target = torch.tensor(2)
+
+    input1 = torch.tensor([100.0, 100.0, 100.0])
+    input2 = torch.tensor([0.0, 100.0, 100.0])
+    input3 = torch.tensor([0.0, 0.0, 100.0])
+
+    # loss(input1, target) > loss(input2, target) > loss(input3, target) == 0
+
+    loss_functions = (
+        nn.CrossEntropyLoss(),
+        nn.MultiMarginLoss(),
+    )
+
+    for loss_function in loss_functions:
+        assert loss_function(input1, target) > loss_function(
+            input2, target
+        ), f"{loss_function}"
+        assert loss_function(input2, target) > loss_function(
+            input3, target
+        ), f"{loss_function}"
+        assert loss_function(input3, target) == 0.0, f"{loss_function}"
