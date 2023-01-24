@@ -39,7 +39,8 @@ spacy = "*"
 pandas = "*"
 geopy = "*"
 sympy = "*"
-
+polars = "*"
+timevec = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
