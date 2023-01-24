@@ -58,19 +58,19 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-test = { shell = """
-pytest &&
-pytest --nbmake notebooks
-""" }
+test = [
+    { cmd = "pytest" },
+    { cmd = "pytest --nbmake notebooks" },
+]
 coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
-format = {shell = """
-isort example ;
-black example ;
-pyupgrade --py37-plus example/*.py
-"""}
-check = {shell = """
-isort --check-only --diff example ;
-black --check --diff example ;
-flake8 example ;
-mypy example
-"""}
+format = [
+    { cmd = "isort example" },
+    { cmd = "black example" },
+    { cmd = "pyupgrade --py37-plus example/*.py" },
+]
+check = [
+    { cmd = "isort --check-only --diff example" },
+    { cmd = "black --check --diff example" },
+    { cmd = "flake8 example" },
+    { cmd = "mypy example" },
+]
