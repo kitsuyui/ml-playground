@@ -41,6 +41,8 @@ geopy = "*"
 sympy = "*"
 polars = "*"
 timevec = "*"
+pyarrow = "*"
+human-readable = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
