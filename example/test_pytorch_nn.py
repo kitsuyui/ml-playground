@@ -253,3 +253,32 @@ def test_classification_loss_functions() -> None:
             input3, target
         ), f"{loss_function}"
         assert loss_function(input3, target) == 0.0, f"{loss_function}"
+
+
+def test_generate_square_subsequent_mask() -> None:
+    mask = nn.Transformer.generate_square_subsequent_mask(2)
+    assert mask.shape == torch.Size([2, 2])
+    assert torch.allclose(
+        mask,
+        torch.tensor(
+            [
+                [0.0, -float("inf")],
+                [0.0, 0.0],
+            ]
+        ),
+    )
+
+    mask = nn.Transformer.generate_square_subsequent_mask(5)
+    assert mask.shape == torch.Size([5, 5])
+    assert torch.allclose(
+        mask,
+        torch.tensor(
+            [
+                [0.0, -float("inf"), -float("inf"), -float("inf"), -float("inf")],
+                [0.0, 0.0, -float("inf"), -float("inf"), -float("inf")],
+                [0.0, 0.0, 0.0, -float("inf"), -float("inf")],
+                [0.0, 0.0, 0.0, 0.0, -float("inf")],
+                [0.0, 0.0, 0.0, 0.0, 0.0],
+            ]
+        ),
+    )
