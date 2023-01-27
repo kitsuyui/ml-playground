@@ -257,12 +257,14 @@ def test_classification_loss_functions() -> None:
 
 def test_generate_square_subsequent_mask() -> None:
     mask = nn.Transformer.generate_square_subsequent_mask(2)
+    nin = -float("inf")
+
     assert mask.shape == torch.Size([2, 2])
     assert torch.allclose(
         mask,
         torch.tensor(
             [
-                [0.0, -float("inf")],
+                [0.0, nin],
                 [0.0, 0.0],
             ]
         ),
@@ -274,10 +276,10 @@ def test_generate_square_subsequent_mask() -> None:
         mask,
         torch.tensor(
             [
-                [0.0, -float("inf"), -float("inf"), -float("inf"), -float("inf")],
-                [0.0, 0.0, -float("inf"), -float("inf"), -float("inf")],
-                [0.0, 0.0, 0.0, -float("inf"), -float("inf")],
-                [0.0, 0.0, 0.0, 0.0, -float("inf")],
+                [0.0, nin, nin, nin, nin],
+                [0.0, 0.0, nin, nin, nin],
+                [0.0, 0.0, 0.0, nin, nin],
+                [0.0, 0.0, 0.0, 0.0, nin],
                 [0.0, 0.0, 0.0, 0.0, 0.0],
             ]
         ),
