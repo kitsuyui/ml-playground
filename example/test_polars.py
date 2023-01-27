@@ -1,5 +1,5 @@
+import numpy as np
 import polars as pl
-import pytest
 
 
 def test_dataframe() -> None:
@@ -22,16 +22,12 @@ def test_dataframe() -> None:
     # to numpy
     a = df["a"].to_numpy()
     b = df["b"].to_numpy()
-    with pytest.raises(NotImplementedError) as e:
-        df["c"].to_numpy()
-    assert (
-        "Conversion of polars data type Utf8 to C-type not implemented."
-        in str(e.value)
-    )
+    c = df["c"].to_numpy()
 
-    # pitfall: polars SeriesView is not a numpy array
-    assert type(a) == pl.internals.series._numpy.SeriesView
-    assert type(b) == pl.internals.series._numpy.SeriesView
+    # pitfall: requires pyarrow to be installed for this to work
+    assert type(a) == np.ndarray
+    assert type(b) == np.ndarray
+    assert type(c) == np.ndarray
     assert a.shape == (3,)
     assert b.shape == (3,)
     assert a.dtype == int
