@@ -34,7 +34,9 @@ jobs:
 
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
-        run: poetry install
+        run: |
+          sudo apt-get -y install graphviz
+          poetry install
 
       - name: Lint
         run: poetry run poe check

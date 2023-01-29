@@ -43,6 +43,9 @@ polars = "*"
 timevec = "*"
 pyarrow = "*"
 human-readable = "*"
+seaborn = "*"
+torchviz = "*"
+onnx = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
