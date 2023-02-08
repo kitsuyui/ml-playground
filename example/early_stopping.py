@@ -4,6 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class EarlyStopping:
     """Early stopping class to stop training when loss is not improving."""
+
     patience: int
     count: int = 0
     best_loss: float = float("inf")
