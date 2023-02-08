@@ -9,8 +9,5 @@ def test_positional_encoding() -> None:
         [1.0, 2.0, 3.0, 4.0],
     )
     y = pe(x)
-    diff = y - x
     # The difference should be between -1.0 and 1.0
-    assert torch.allclose(
-        diff, torch.Tensor([0.0, 0.0, 0.0, 0.0]), rtol=0.0, atol=1.0
-    )
+    assert torch.allclose(x, y, rtol=0.0, atol=1.0)
