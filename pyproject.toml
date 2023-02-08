@@ -46,6 +46,7 @@ human-readable = "*"
 seaborn = "*"
 torchviz = "*"
 onnx = "*"
+graphviz = "*"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
