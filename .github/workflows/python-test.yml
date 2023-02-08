@@ -35,7 +35,7 @@ jobs:
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
         run: |
-          sudo apt-get -y install graphviz
+          sudo apt-get -y install graphviz python-pydot
           poetry install
 
       - name: Lint
