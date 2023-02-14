@@ -38,19 +38,27 @@ By doing so, I will ensure that sample codes always function as samples.
 
 Install dependencies with [poetry](https://python-poetry.org/).
 
-```bash
+```sh
 poetry install
+```
+
+## Run poe tasks
+
+## [Install poe as a poetry plugin](https://github.com/nat-n/poethepoet#installation)
+
+```sh
+poetry self add 'poethepoet[poetry_plugin]'
 ```
 
 ## Run tests
 
-```bash
+```sh
 poetry poe test
 ```
 
 ## Format
 
-```bash
+```sh
 poetry poe format
 ```
 
@@ -60,7 +68,7 @@ poetry poe format
 
 ## Lint
 
-```bash
+```sh
 poetry poe check
 ```
 
