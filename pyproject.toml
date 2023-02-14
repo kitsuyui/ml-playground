@@ -16,9 +16,13 @@ torch = [
     # https://peps.python.org/pep-0496/
     # https://peps.python.org/pep-0508/
     # following settings are for GitHub Actions (CPU only).
-    { version = "*", extras = ["cpu"], markers = "sys_platform == 'linux'" },
+    { version = "*", extras = [
+        "cpu",
+    ], markers = "sys_platform == 'linux'" },
     # NOTE: PyPI pytorch is not supported on Python 3.11 in macOS yet.
-    { version = "*", extras = ["cpu"], markers = "sys_platform == 'darwin' and python_version > '3.10'" },
+    { version = "*", extras = [
+        "cpu",
+    ], markers = "sys_platform == 'darwin' and python_version > '3.10'" },
     { version = "*", markers = "sys_platform == 'darwin'" },
 ]
 # torchaudio is not supported on Python 3.11 yet.
@@ -65,25 +69,49 @@ pytest-xdist = "*"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poe.tasks]
-test = [
-    { cmd = "pytest" },
-    { cmd = "pytest --nbmake notebooks -n auto" },
-]
-coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
-format = [
-    { cmd = "isort example" },
-    { cmd = "black example" },
-    { cmd = "pyupgrade --py37-plus example/*.py" },
-]
-check = [
-    { cmd = "isort --check-only --diff example" },
-    { cmd = "black --check --diff example" },
-    { cmd = "flake8 example" },
-    { cmd = "mypy example" },
-]
-
 [tool.isort]
 profile = "black"
 multi_line_output = 3
 line_length = 79
+
+[tool.poe.tasks]
+coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
+format-all = [
+    { ref = "format" },
+    { cmd = "pyupgrade --py37-plus example/*.py" },
+]
+
+[tool.poe.tasks.test-all]
+sequence = [{ ref = "test" }, { ref = "test-notebooks" }]
+ignore_fail = "return_non_zero"
+
+[tool.poe.tasks.test-notebooks]
+cmd = "pytest -n auto --nbmake ${target}"
+args = [
+    { name = "target", default = "notebooks", multiple = true, positional = true },
+]
+
+[tool.poe.tasks.test]
+cmd = "pytest ${target}"
+args = [
+    { name = "target", default = "example", multiple = true, positional = true },
+]
+
+[tool.poe.tasks.check]
+sequence = [
+    { cmd = "isort --check-only --diff ${target}" },
+    { cmd = "black --check --diff ${target}" },
+    { cmd = "flake8 ${target}" },
+    { cmd = "mypy ${target}" },
+]
+args = [
+    { name = "target", default = "example", multiple = true, positional = true },
+]
+ignore_fail = "return_non_zero"
+
+[tool.poe.tasks.format]
+sequence = [{ cmd = "isort ${target}" }, { cmd = "black ${target}" }]
+args = [
+    { name = "target", default = "example", multiple = true, positional = true },
+]
+ignore_fail = "return_non_zero"
