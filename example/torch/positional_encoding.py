@@ -20,7 +20,6 @@ class PositionalEncoding(nn.Module):
     ):
         super().__init__()
         self.dropout = nn.Dropout(p=dropout)
-
         position = torch.arange(max_len).unsqueeze(1)
         div_term = torch.exp(
             torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model)
@@ -35,6 +34,10 @@ class PositionalEncoding(nn.Module):
         Args:
             x: Tensor, shape [seq_len, batch_size, embedding_dim]
         """
+        if len(x.shape) == 2:
+            x = x + self.pe[: x.size(0)].squeeze(1)  # type: ignore
+            return self.dropout(x)  # type: ignore
+
         x = x + self.pe[: x.size(0)]  # type: ignore
         return self.dropout(x)  # type: ignore
 
