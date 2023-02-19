@@ -9,11 +9,6 @@
      <cc:Work>
       <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
       <dc:format>image/svg+xml</dc:format>
-      <dc:creator>
-       <cc:Agent>
-        <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
-       </cc:Agent>
-      </dc:creator>
      </cc:Work>
     </rdf:RDF>
    </metadata>
@@ -888,11 +883,6 @@
      <cc:Work>
       <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
       <dc:format>image/svg+xml</dc:format>
-      <dc:creator>
-       <cc:Agent>
-        <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
-       </cc:Agent>
-      </dc:creator>
      </cc:Work>
     </rdf:RDF>
    </metadata>
@@ -1588,11 +1578,6 @@
      <cc:Work>
       <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
       <dc:format>image/svg+xml</dc:format>
-      <dc:creator>
-       <cc:Agent>
-        <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
-       </cc:Agent>
-      </dc:creator>
      </cc:Work>
     </rdf:RDF>
    </metadata>
@@ -2611,11 +2596,6 @@
      <cc:Work>
       <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
       <dc:format>image/svg+xml</dc:format>
-      <dc:creator>
-       <cc:Agent>
-        <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
-       </cc:Agent>
-      </dc:creator>
      </cc:Work>
     </rdf:RDF>
    </metadata>
