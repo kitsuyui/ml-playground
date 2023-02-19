@@ -26,7 +26,10 @@ def test_matplotlib(snapshot: SnapShot) -> None:
     ax.set_ylabel("sin(x)")
     # plt.show()
 
-    metadata = {"Date": None}  # Remove date from metadata for reproducibility
+    metadata = {
+        "Date": None,
+        "Creator": None,
+    }  # Remove date from metadata for reproducibility
     plt.savefig(fp, format="svg", metadata=metadata)
     plt.savefig(BASE_PATH / "test1.svg", metadata=metadata)
     assert fp.getvalue() == snapshot
@@ -47,7 +50,10 @@ def test_matplotlib_hist(snapshot: SnapShot) -> None:
     ax.set_ylabel("y (random)")
     # plt.show()
 
-    metadata = {"Date": None}  # Remove date from metadata for reproducibility
+    metadata = {
+        "Date": None,
+        "Creator": None,
+    }  # Remove date from metadata for reproducibility
     plt.savefig(fp, format="svg", metadata=metadata)
     plt.savefig(BASE_PATH / "test2.svg", metadata=metadata)
     assert fp.getvalue() == snapshot
@@ -68,7 +74,10 @@ def test_matplotlib_bar(snapshot: SnapShot) -> None:
     ax.set_ylabel("y")
     # plt.show()
 
-    metadata = {"Date": None}  # Remove date from metadata for reproducibility
+    metadata = {
+        "Date": None,
+        "Creator": None,
+    }  # Remove date from metadata for reproducibility
     plt.savefig(fp, format="svg", metadata=metadata)
     plt.savefig(BASE_PATH / "test3.svg", metadata=metadata)
     assert fp.getvalue() == snapshot
@@ -89,7 +98,10 @@ def test_matplotlib_scatter(snapshot: SnapShot) -> None:
     ax.set_ylabel("y")
     # plt.show()
 
-    metadata = {"Date": None}  # Remove date from metadata for reproducibility
+    metadata = {
+        "Date": None,
+        "Creator": None,
+    }  # Remove date from metadata for reproducibility
     plt.savefig(fp, format="svg", metadata=metadata)
     plt.savefig(BASE_PATH / "test4.svg", metadata=metadata)
     assert fp.getvalue() == snapshot
