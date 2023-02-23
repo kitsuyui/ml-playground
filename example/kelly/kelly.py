@@ -117,8 +117,9 @@ class KellySolver:
         ja: 最適なべットをした場合の成長率
         en: Growth rate when optimal bet is made
         """
-        variables = self.variables_to_real | {
-            self._sympy.fraction: self.optimal_fraction
+        variables = {
+            **self.variables_to_real,
+            self._sympy.fraction: self.optimal_fraction,
         }
         return float(self._sympy.growth.subs(variables))
 
