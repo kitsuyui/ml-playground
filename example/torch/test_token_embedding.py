@@ -37,3 +37,24 @@ def test_token_embedding() -> None:
     # trainability
     y.sum().backward()
     assert te.scale_embedding.embedding.weight.grad is not None
+
+
+def test_torch_jit_ready() -> None:
+    """Test that the module is torch.jit.script() ready."""
+    embedding_dim = 4
+    te = TokenEmbedding(
+        num_vocab=6,
+        embedding_dim=embedding_dim,
+        dropout=0.1,
+    )
+    te = torch.jit.script(te)
+    x = torch.tensor(
+        [1, 2, 3],
+    )
+    assert x.shape == (3,)
+    assert x.dtype == torch.int64
+    y = te(x)
+    assert y.shape == (3, 4)
+    assert y.dtype == torch.float32
+    assert (*x.shape, embedding_dim) == y.shape
+    assert te.code is not None

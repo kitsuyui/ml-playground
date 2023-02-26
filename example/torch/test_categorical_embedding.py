@@ -37,3 +37,24 @@ def test_categorical_embedding() -> None:
     # trainability
     y.sum().backward()
     assert ce.scale_embedding.embedding.weight.grad is not None
+
+
+def test_torch_jit_ready() -> None:
+    """Test that the module is torch.jit.script() ready."""
+    embedding_dim = 4
+    ce = CategoricalEmbedding(
+        num_categories=6,
+        embedding_dim=embedding_dim,
+        dropout=0.1,
+    )
+    ce = torch.jit.script(ce)
+    x = torch.tensor(
+        [1, 2, 3],
+    )
+    assert x.shape == (3,)
+    assert x.dtype == torch.int64
+    y = ce(x)
+    assert y.shape == (3, 4)
+    assert y.dtype == torch.float32
+    assert (*x.shape, embedding_dim) == y.shape
+    assert ce.code is not None

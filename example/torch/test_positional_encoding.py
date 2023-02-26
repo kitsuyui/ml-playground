@@ -52,3 +52,21 @@ PositionalEncoding2(
 
     # the original implementation is faster because it is simpler (it does not use Sequential module)
     assert t0 < t1
+
+
+def test_torch_jit_ready() -> None:
+    """Test that the module is torch.jit.script() ready."""
+    pe = PositionalEncoding(d_model=4, dropout=0.0)
+    pe = torch.jit.script(pe)
+    x = torch.Tensor(
+        [1.0, 2.0, 3.0, 4.0],
+    )
+    y = pe(x)
+    assert y.shape == (4, 1, 4)
+    assert pe.code is not None
+
+    pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
+    pe2 = torch.jit.script(pe2)
+    y2 = pe2(x)
+    assert y2.shape == (4, 1, 4)
+    assert pe2.code is not None
