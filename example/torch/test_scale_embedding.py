@@ -21,8 +21,8 @@ def test_scale_embedding() -> None:
     y2 = se2(x)
     assert y2.shape == y.shape
 
-    t0 = timeit.timeit("se(x)", globals=locals(), number=100000)
-    t1 = timeit.timeit("se2(x)", globals=locals(), number=100000)
+    t0 = timeit.timeit("se(x)", globals=locals(), number=200000)
+    t1 = timeit.timeit("se2(x)", globals=locals(), number=200000)
 
     # ScaleEmbedding2 uses register_buffer, but it is slower than ScaleEmbedding
     # register_buffer suits for more large constant tensors
