@@ -6,17 +6,13 @@ import torch.nn as nn
 # https://pytorch.org/tutorials/beginner/Intro_to_TorchScript_tutorial.html
 
 
-def something_orig(x: torch.Tensor) -> torch.Tensor:
+def something(x: torch.Tensor) -> torch.Tensor:
     for i in range(512):
         x += i
     return x
 
 
-@torch.jit.script
-def something_jit(x: torch.Tensor) -> torch.Tensor:
-    for i in range(512):
-        x += i
-    return x
+something_jit = torch.jit.script(something)
 
 
 class SomethingOrig(nn.Module):
@@ -28,12 +24,11 @@ class SomethingOrig(nn.Module):
 
 def test_torch_jit_fn() -> None:
     x = torch.rand(1)
-    assert something_orig(x) == something_jit(x)
-    orig_time = timeit.timeit(lambda: something_orig(x), number=1000)
+    assert something(x) == something_jit(x)
+    orig_time = timeit.timeit(lambda: something(x), number=1000)
     jit_time = timeit.timeit(lambda: something_jit(x), number=1000)
-
     tobe_ir = """\
-def something_jit(x: Tensor) -> Tensor:
+def something(x: Tensor) -> Tensor:
   x0 = x
   for i in range(512):
     x0 = torch.add_(x0, i)
