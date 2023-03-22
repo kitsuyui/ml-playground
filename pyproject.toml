@@ -28,7 +28,13 @@ numpy = "*"
 scipy = "*"
 scikit-learn = "*"
 einops = "*"
-jupyter = "*"
+
+# https://github.com/microsoft/debugpy/issues/1246
+# https://github.com/microsoft/debugpy/issues/1248
+# https://github.com/microsoft/debugpy/issues/1249
+jupyter = [
+    { version = "*", markers = "sys_platform != 'win32' and python_version >= '3.11'" },
+]
 notebook = "*"
 matplotlib = "*"
 pillow = "*"
