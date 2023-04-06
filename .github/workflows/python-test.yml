@@ -32,13 +32,6 @@ jobs:
             ${{ runner.os }}-build-${{ matrix.python }}-
             ${{ runner.os }}-
 
-      - name: Workaround
-        # Remove this step when bug is fixed
-        # https://github.com/kitsuyui/ml-playground/issues/83
-        if: matrix.python == '3.11'
-        run: |
-          poetry config installer.modern-installation false
-
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
         run: |
