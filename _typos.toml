@@ -1,0 +1,3 @@
+[default.extend-words]
+# nin is negative infinity
+nin = "nin"

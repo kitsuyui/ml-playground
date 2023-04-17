@@ -187,7 +187,7 @@ def test_numpy_types() -> None:
     assert x.size * x.itemsize == 40, "array byte size is 40"
 
 
-def test_numpy_n_dimention_array() -> None:
+def test_numpy_n_dimension_array() -> None:
     """numpy.ndarray
 
     en: numpy.ndarray as n-dimensional array/tensor

@@ -42,6 +42,13 @@ Install dependencies with [poetry](https://python-poetry.org/).
 poetry install
 ```
 
+## Additional installation
+
+### typos
+
+This project uses typos.
+Please install it according to https://github.com/crate-ci/typos#install
+
 ## Run poe tasks
 
 ## [Install poe as a poetry plugin](https://github.com/nat-n/poethepoet#installation)
