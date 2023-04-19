@@ -820,14 +820,14 @@ files = [
 
 [[package]]
 name = "einops"
-version = "0.6.0"
+version = "0.6.1"
 description = "A new flavour of deep learning operations"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "einops-0.6.0-py3-none-any.whl", hash = "sha256:c7b187a5dc725f079860ec2d330c1820448948622d826273345a8dd8d5f695bd"},
-    {file = "einops-0.6.0.tar.gz", hash = "sha256:6f6c78739316a2e3ccbce8052310497e69da092935e4173f2e76ec4e3a336a35"},
+    {file = "einops-0.6.1-py3-none-any.whl", hash = "sha256:99149e46cc808956b174932fe563d920db4d6e5dadb8c6ecdaa7483b7ef7cfc3"},
+    {file = "einops-0.6.1.tar.gz", hash = "sha256:f95f8d00f4ded90dbc4b19b6f98b177332614b0357dde66997f3ae5d474dc8c8"},
 ]
 
 [[package]]
@@ -2711,6 +2711,8 @@ category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
+    {file = "polars-0.17.5-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:3ec088bb68c2b833f1172b85dc1222ae88732ce0ae7de34590dd387204a84b1b"},
+    {file = "polars-0.17.5-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:1f5389d29d5e5e993a9a361801d54dccd0399cedb72632274b341e27957c631c"},
     {file = "polars-0.17.5-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4518d2a70bf69eaae04437a241f6d81f2d576e4491d8d4b45c95eacb53415616"},
     {file = "polars-0.17.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6fbe7dc6be495d1805f8252bc6bcfb0372134595bea0ebf7c46db21bad86bf58"},
     {file = "polars-0.17.5-cp37-abi3-win_amd64.whl", hash = "sha256:7f112d6cefb37a32fc723195f0be1f62ec528b5f83905ad2e614bc78585a0313"},
