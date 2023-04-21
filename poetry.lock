@@ -2705,18 +2705,18 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars"
-version = "0.17.5"
+version = "0.17.6"
 description = "Blazingly fast DataFrame library"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "polars-0.17.5-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:3ec088bb68c2b833f1172b85dc1222ae88732ce0ae7de34590dd387204a84b1b"},
-    {file = "polars-0.17.5-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:1f5389d29d5e5e993a9a361801d54dccd0399cedb72632274b341e27957c631c"},
-    {file = "polars-0.17.5-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4518d2a70bf69eaae04437a241f6d81f2d576e4491d8d4b45c95eacb53415616"},
-    {file = "polars-0.17.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6fbe7dc6be495d1805f8252bc6bcfb0372134595bea0ebf7c46db21bad86bf58"},
-    {file = "polars-0.17.5-cp37-abi3-win_amd64.whl", hash = "sha256:7f112d6cefb37a32fc723195f0be1f62ec528b5f83905ad2e614bc78585a0313"},
-    {file = "polars-0.17.5.tar.gz", hash = "sha256:7db2da068e983312238799ad8263e80544151304aac0bc2e6511f91cb56af54d"},
+    {file = "polars-0.17.6-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:03801d9ad4aa1a813d39baa9437683356e29c90f0a2f1d18b17672d28f805313"},
+    {file = "polars-0.17.6-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:6a4a06fd046cad93b16129a092d1bc55408f2025acf07e5a8f8aceb82657285f"},
+    {file = "polars-0.17.6-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:323e9c018d639d489454e06174918ec4c3e4a5b9292058432fd3d3370cef919d"},
+    {file = "polars-0.17.6-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1e0c33f1d6ec25fea203ff9091a2cae7d1ad231dedb6b9b22cb52b2799ea6456"},
+    {file = "polars-0.17.6-cp37-abi3-win_amd64.whl", hash = "sha256:9136edf4c5463c188e9e84406d3c9821a0b5d4252097e1c3ab0d61df4f3257de"},
+    {file = "polars-0.17.6.tar.gz", hash = "sha256:b5b9ab9b894bce257744f314985c4a211dd6e6ae1afdd93a909a5108eb6b4054"},
 ]
 
 [package.dependencies]
