@@ -36,6 +36,7 @@ jobs:
         name: Install dependencies
         run: |
           sudo apt-get -y install graphviz
+          export CUDA_VISIBLE_DEVICES=-1
           poetry install
 
       - name: Lint
