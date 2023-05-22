@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
@@ -34,10 +34,7 @@ jobs:
 
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
-        run: |
-          sudo apt-get -y install graphviz
-          export CUDA_VISIBLE_DEVICES=-1
-          poetry install
+        run: poetry install
 
       - name: Lint
         run: poetry run poe check
