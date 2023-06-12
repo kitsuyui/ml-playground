@@ -25,9 +25,11 @@ jobs:
         id: cache-python
         uses: actions/cache@v3
         with:
-          # path: ~/.cache/pypoetry/virtualenvs
-          # for macOS, use the following path
-          path: ~/Library/Caches/pypoetry/virtualenvs
+          # for macOS, use the following path: ~/Library/Caches/pypoetry/virtualenvs
+          path: |
+            ~/Library/Caches/pypoetry/virtualenvs
+            ~/.cache/pypoetry/virtualenvs
+            .mypy_cache
           key: ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
