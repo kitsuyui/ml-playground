@@ -25,8 +25,8 @@ class SomethingOrig(nn.Module):
 def test_torch_jit_fn() -> None:
     x = torch.rand(1)
     assert something(x) == something_jit(x)
-    orig_time = timeit.timeit(lambda: something(x), number=1000)
-    jit_time = timeit.timeit(lambda: something_jit(x), number=1000)
+    orig_time = timeit.repeat(lambda: something(x), number=1000)
+    jit_time = timeit.repeat(lambda: something_jit(x), number=1000)
     tobe_ir = """\
 def something(x: Tensor) -> Tensor:
   x0 = x
@@ -47,12 +47,12 @@ def test_torch_jit_nn_module() -> None:
     assert orig(x) == jit(x)
 
     # warm up
-    timeit.timeit(lambda: orig(x), number=100)
-    timeit.timeit(lambda: jit(x), number=100)
+    timeit.repeat(lambda: orig(x), number=100)
+    timeit.repeat(lambda: jit(x), number=100)
 
     # benchmark (compare speed)
-    orig_time = timeit.timeit(lambda: orig(x), number=1000)
-    jit_time = timeit.timeit(lambda: jit(x), number=1000)
+    orig_time = min(timeit.repeat(lambda: orig(x), number=1000))
+    jit_time = min(timeit.repeat(lambda: jit(x), number=1000))
 
     tobe_ir = """\
 def forward(self,
