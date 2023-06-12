@@ -18,16 +18,14 @@ jobs:
         with:
           python-version: "${{ matrix.python }}"
 
-      - name: Set up poetry
-        uses: abatilo/actions-poetry@v2
-
       - name: Cache
         id: cache-python
         uses: actions/cache@v3
         with:
           # for macOS, use the following path: ~/Library/Caches/pypoetry/virtualenvs
           path: |
-            ~/Library/Caches/pypoetry/virtualenvs
+            ~/Library/Caches/pypoetry/
+            ~/Library/Application Support/pypoetry
             ~/.cache/pypoetry/virtualenvs
             .mypy_cache
           key: ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
@@ -35,6 +33,9 @@ jobs:
             ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
             ${{ runner.os }}-build-${{ matrix.python }}-
             ${{ runner.os }}-
+
+      - name: Set up poetry
+        uses: abatilo/actions-poetry@v2
 
       - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
         name: Install dependencies
