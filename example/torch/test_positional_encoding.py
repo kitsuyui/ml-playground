@@ -46,9 +46,13 @@ PositionalEncoding2(
     # same result
     assert torch.allclose(y, y2, rtol=0.0, atol=0.0)
 
-    # benchmark
-    t0 = timeit.timeit("pe(x)", globals=locals(), number=200000)
-    t1 = timeit.timeit("pe2(x)", globals=locals(), number=200000)
+    # warm up
+    timeit.timeit(lambda: pe(x), number=100)
+    timeit.timeit(lambda: pe2(x), number=100)
+
+    # benchmark (compare speed)
+    t0 = timeit.timeit(lambda: pe(x), number=1000)
+    t1 = timeit.timeit(lambda: pe2(x), number=1000)
 
     # the original implementation is faster because it is simpler (it does not use Sequential module)
     assert t0 < t1
