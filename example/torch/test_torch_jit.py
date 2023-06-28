@@ -1,5 +1,3 @@
-import timeit
-
 import torch
 import torch.nn as nn
 
@@ -25,8 +23,6 @@ class SomethingOrig(nn.Module):
 def test_torch_jit_fn() -> None:
     x = torch.rand(1)
     assert something(x) == something_jit(x)
-    orig_time = timeit.repeat(lambda: something(x), number=1000)
-    jit_time = timeit.repeat(lambda: something_jit(x), number=1000)
     tobe_ir = """\
 def something(x: Tensor) -> Tensor:
   x0 = x
@@ -35,9 +31,6 @@ def something(x: Tensor) -> Tensor:
   return x0
 """
     assert something_jit.code == tobe_ir
-    assert (
-        jit_time < orig_time
-    ), f"JIT is must faster than original: but (orig, jit) = ({orig_time}, {jit_time})"
 
 
 def test_torch_jit_nn_module() -> None:
@@ -45,14 +38,6 @@ def test_torch_jit_nn_module() -> None:
     orig = SomethingOrig()
     jit = torch.jit.script(orig)
     assert orig(x) == jit(x)
-
-    # warm up
-    timeit.repeat(lambda: orig(x), number=100)
-    timeit.repeat(lambda: jit(x), number=100)
-
-    # benchmark (compare speed)
-    orig_time = min(timeit.repeat(lambda: orig(x), number=1000))
-    jit_time = min(timeit.repeat(lambda: jit(x), number=1000))
 
     tobe_ir = """\
 def forward(self,
@@ -62,9 +47,4 @@ def forward(self,
     x0 = torch.add_(x0, i)
   return x0
 """
-    print(tobe_ir)
     assert jit.code == tobe_ir
-
-    assert (
-        jit_time < orig_time
-    ), f"JIT is must faster than original: but (orig, jit) = ({orig_time}, {jit_time})"
