@@ -3814,13 +3814,13 @@ files = [
 
 [[package]]
 name = "timevec"
-version = "0.1.6"
+version = "0.1.7"
 description = "Get some usable vector representations of datetime"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "timevec-0.1.6-py3-none-any.whl", hash = "sha256:9a1b98ac74b914ee54e0fea940548275220f2ce16a13076488eaf795c0a6cbc2"},
-    {file = "timevec-0.1.6.tar.gz", hash = "sha256:b3631b8f2ef80c836a32d353e893f7a09f34e9eb46ba962614ec71906e76fbb2"},
+    {file = "timevec-0.1.7-py3-none-any.whl", hash = "sha256:c0a7b498b7692ba2d8077a987e7359d71770c1c18747bbc1050c24c9bcb089aa"},
+    {file = "timevec-0.1.7.tar.gz", hash = "sha256:4000958e8e61d239f9e9e07b6c429d0d618536dbbb12406aa824b6a6a8423e17"},
 ]
 
 [package.extras]
