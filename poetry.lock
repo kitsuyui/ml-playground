@@ -2012,20 +2012,19 @@ test = ["pep440", "pre-commit", "pytest", "testpath"]
 
 [[package]]
 name = "nbmake"
-version = "1.4.1"
+version = "1.4.3"
 description = "Pytest plugin for testing notebooks"
 optional = false
 python-versions = ">=3.7.0,<4.0.0"
 files = [
-    {file = "nbmake-1.4.1-py3-none-any.whl", hash = "sha256:1c1619fc54a2fb64bfd84acbdf13b2ffba0e4a03bfea1684f4648f28ca850ada"},
-    {file = "nbmake-1.4.1.tar.gz", hash = "sha256:7f602ba5195e80e4f2527944bb06d3b4df0d1520e73ba66126b51132b1f646ea"},
+    {file = "nbmake-1.4.3-py3-none-any.whl", hash = "sha256:0318dd5dd30066e83717bf38888b2bec1b4744ad669a9801b41858e589493330"},
+    {file = "nbmake-1.4.3.tar.gz", hash = "sha256:9afc46ba05cc22f5a78047a758dca32386c95eaaa41501b25ce108cf733d9622"},
 ]
 
 [package.dependencies]
 ipykernel = ">=5.4.0"
 nbclient = ">=0.6.6,<0.7.0"
 nbformat = ">=5.0.8,<6.0.0"
-pydantic = ">=1.7.2,<2.0.0"
 Pygments = ">=2.7.3,<3.0.0"
 pytest = ">=6.1.0"
 
