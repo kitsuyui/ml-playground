@@ -10,7 +10,7 @@ readme = "README.md"
 packages = []
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 torch = "*"
 torchvision = "*"
 torchaudio = "*"
@@ -62,7 +62,7 @@ line_length = 79
 coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
 format-all = [
     { ref = "format" },
-    { cmd = "pyupgrade --py37-plus example/*.py" },
+    { cmd = "pyupgrade --py39-plus example/*.py" },
 ]
 
 [tool.poe.tasks.test-all]
