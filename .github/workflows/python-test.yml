@@ -33,7 +33,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
             ${{ runner.os }}-build-${{ matrix.python }}-
-            ${{ runner.os }}-
 
       - name: Set up poetry
         uses: abatilo/actions-poetry@v2
