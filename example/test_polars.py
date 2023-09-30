@@ -13,8 +13,8 @@ def test_dataframe() -> None:
 
     assert df["a"].sum() == 6
     assert df.shape == (3, 3)
-    assert type(df) == pl.DataFrame
-    assert type(df["a"]) == pl.Series
+    assert isinstance(df, pl.DataFrame)
+    assert isinstance(df["a"], pl.Series)
     assert df["a"].dtype == pl.Int64
     assert df["b"].dtype == pl.Float64
     assert df["c"].dtype == pl.Utf8
@@ -25,9 +25,9 @@ def test_dataframe() -> None:
     c = df["c"].to_numpy()
 
     # pitfall: requires pyarrow to be installed for this to work
-    assert type(a) == np.ndarray
-    assert type(b) == np.ndarray
-    assert type(c) == np.ndarray
+    assert isinstance(a, np.ndarray)
+    assert isinstance(b, np.ndarray)
+    assert isinstance(c, np.ndarray)
     assert a.shape == (3,)
     assert b.shape == (3,)
     assert a.dtype == int

@@ -1,5 +1,5 @@
 import numpy as np
-import pandas as pd  # type: ignore
+import pandas as pd
 
 
 def test_dataframe() -> None:
@@ -12,19 +12,19 @@ def test_dataframe() -> None:
     )
     assert df["a"].sum() == 6
     assert df.shape == (3, 3)
-    assert type(df) == pd.DataFrame
-    assert type(df["a"]) == pd.Series
-    assert df["a"].dtype == int
-    assert df["b"].dtype == float
-    assert df["c"].dtype == object
+    assert isinstance(df, pd.DataFrame)
+    assert isinstance(df["a"], pd.Series)
+    assert df["a"].dtype == np.int64
+    assert df["b"].dtype == np.float64
+    assert df["c"].dtype == np.object_
 
     # to numpy
     a = df["a"].to_numpy()
     b = df["b"].to_numpy()
     c = df["c"].to_numpy()
-    assert type(a) == np.ndarray
-    assert type(b) == np.ndarray
-    assert type(c) == np.ndarray
+    assert isinstance(a, np.ndarray)
+    assert isinstance(b, np.ndarray)
+    assert isinstance(c, np.ndarray)
     assert a.shape == (3,)
     assert b.shape == (3,)
     assert c.shape == (3,)
