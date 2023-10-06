@@ -4230,13 +4230,13 @@ files = [
 
 [[package]]
 name = "timevec"
-version = "0.1.7"
+version = "0.2.0"
 description = "Get some usable vector representations of datetime"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "timevec-0.1.7-py3-none-any.whl", hash = "sha256:c0a7b498b7692ba2d8077a987e7359d71770c1c18747bbc1050c24c9bcb089aa"},
-    {file = "timevec-0.1.7.tar.gz", hash = "sha256:4000958e8e61d239f9e9e07b6c429d0d618536dbbb12406aa824b6a6a8423e17"},
+    {file = "timevec-0.2.0-py3-none-any.whl", hash = "sha256:036e3fcdebd52965dad00792efe2a3dc86c95b479b9edccb5def5225031afe17"},
+    {file = "timevec-0.2.0.tar.gz", hash = "sha256:f42fdd1b494cae0a121c01a6f4d50f3b8ea6e6379852ba74e5255f9bcb17abaf"},
 ]
 
 [package.extras]
