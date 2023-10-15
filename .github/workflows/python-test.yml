@@ -54,10 +54,10 @@ jobs:
           fi
 
       - name: Test
-        run: poetry run poe test
+        run: PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 poetry run poe test
 
       - name: Coverage
-        run: poetry run poe coverage-xml
+        run: PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 poetry run poe coverage-xml
 
       - name: Upload coverage report to Codecov
         if: matrix.python == '3.11'
