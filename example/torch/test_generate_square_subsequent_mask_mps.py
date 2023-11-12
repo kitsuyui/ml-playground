@@ -1,5 +1,11 @@
+import os
+
 import torch
 from torch.nn import Transformer
+
+
+def running_on_github_actions() -> bool:
+    return bool(os.environ.get("GITHUB_ACTIONS"))
 
 
 def test_generate_square_subsequent_mask_mps() -> None:
@@ -11,7 +17,7 @@ def test_generate_square_subsequent_mask_mps() -> None:
     assert (Transformer.generate_square_subsequent_mask(2) == tobe).all()
 
     # But on mps, it will return nan
-    if torch.backends.mps.is_available():
+    if torch.backends.mps.is_available() and not running_on_github_actions():
         actual = torch.tensor(
             [[float("nan"), -float("inf")], [float("nan"), float("nan")]],
             device="mps",
