@@ -4,7 +4,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
