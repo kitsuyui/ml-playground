@@ -13,6 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: install shared libraries
+        run: |
+          brew install openblas
+          brew install lapack
+
       - name: Set up Python
         id: setup-python
         uses: actions/setup-python@v4
