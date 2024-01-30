@@ -498,6 +498,17 @@ files = [
 ]
 
 [[package]]
+name = "colored"
+version = "2.2.4"
+description = "Simple python library for color and formatting to terminal"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "colored-2.2.4-py3-none-any.whl", hash = "sha256:a7069673bd90a35f46cb748d012c17284a0668d2f1c06bc7a51822a2d5ad2112"},
+    {file = "colored-2.2.4.tar.gz", hash = "sha256:595e1dd7f3b472ea5f12af21d2fec8a2ea2cf8f9d93e67180197330b26df9b61"},
+]
+
+[[package]]
 name = "comm"
 version = "0.2.1"
 description = "Jupyter Python Comm implementation, for usage in ipykernel, xeus-python etc."
@@ -2987,13 +2998,13 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "7.4.4"
+version = "8.0.0"
 description = "pytest: simple powerful testing with Python"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "pytest-7.4.4-py3-none-any.whl", hash = "sha256:b090cdf5ed60bf4c45261be03239c2c1c22df034fbffe691abe93cd80cea01d8"},
-    {file = "pytest-7.4.4.tar.gz", hash = "sha256:2cf0005922c6ace4a3e2ec8b4080eb0d9753fdc93107415332f50ce9e7994280"},
+    {file = "pytest-8.0.0-py3-none-any.whl", hash = "sha256:50fb9cbe836c3f20f0dfa99c565201fb75dc54c8d76373cd1bde06b06657bdb6"},
+    {file = "pytest-8.0.0.tar.gz", hash = "sha256:249b1b0864530ba251b7438274c4d251c58d868edaaec8762893ad4a0d71c36c"},
 ]
 
 [package.dependencies]
@@ -3001,7 +3012,7 @@ colorama = {version = "*", markers = "sys_platform == \"win32\""}
 exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
-pluggy = ">=0.12,<2.0"
+pluggy = ">=1.3.0,<2.0"
 tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
@@ -3923,17 +3934,22 @@ mpmath = ">=0.19"
 
 [[package]]
 name = "syrupy"
-version = "4.6.0"
-description = "Pytest Snapshot Test Utility"
+version = "0.0.15"
+description = "PyTest Snapshot Test Utility"
 optional = false
-python-versions = ">=3.8.1,<4"
+python-versions = "~=3.6"
 files = [
-    {file = "syrupy-4.6.0-py3-none-any.whl", hash = "sha256:747aae1bcf3cb3249e33b1e6d81097874d23615982d5686ebe637875b0775a1b"},
-    {file = "syrupy-4.6.0.tar.gz", hash = "sha256:231b1f5d00f1f85048ba81676c79448076189c4aef4d33f21ae32f3b4c565a54"},
+    {file = "syrupy-0.0.15-py3-none-any.whl", hash = "sha256:03da7423004e1b3a2d8334baca40641a0e4a283b9f7cf9df552bc19fd5daf7f7"},
+    {file = "syrupy-0.0.15.tar.gz", hash = "sha256:c14f7b37b58546b99c578ff88b2dccfb8d96b98d9d4dac051d9597f878ce7f0f"},
 ]
 
 [package.dependencies]
-pytest = ">=7.0.0,<8.0.0"
+attrs = ">=18.2.0"
+colored = "*"
+typing-extensions = ">=3.6"
+
+[package.extras]
+dev = ["black", "codecov", "coverage[toml]", "flake8", "flake8-bugbear", "flake8-builtins", "flake8-comprehensions", "flake8-i18n", "invoke", "isort", "mypy", "pip-tools", "py-githooks", "pytest", "semver", "twine", "wheel"]
 
 [[package]]
 name = "terminado"
