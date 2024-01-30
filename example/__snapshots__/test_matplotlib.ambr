@@ -1,6 +1,5 @@
-# serializer version: 1
 # name: test_matplotlib
-  '''
+  '
   <?xml version="1.0" encoding="utf-8" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -871,10 +870,10 @@
    </defs>
   </svg>
   
-  '''
-# ---
+  '
+---
 # name: test_matplotlib_bar
-  '''
+  '
   <?xml version="1.0" encoding="utf-8" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -1566,10 +1565,10 @@
    </defs>
   </svg>
   
-  '''
-# ---
+  '
+---
 # name: test_matplotlib_hist
-  '''
+  '
   <?xml version="1.0" encoding="utf-8" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -2584,10 +2583,10 @@
    </defs>
   </svg>
   
-  '''
-# ---
+  '
+---
 # name: test_matplotlib_scatter
-  '''
+  '
   <?xml version="1.0" encoding="utf-8" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -3374,5 +3373,5 @@
    </defs>
   </svg>
   
-  '''
-# ---
+  '
+---
