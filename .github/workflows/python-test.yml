@@ -30,6 +30,9 @@ jobs:
         with:
           python-version: "${{ matrix.python }}"
 
+      - name: Set up poetry
+        uses: abatilo/actions-poetry@v2
+
       - name: Cache
         id: cache-python
         uses: actions/cache@v4
@@ -44,9 +47,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
             ${{ runner.os }}-build-${{ matrix.python }}-
-
-      - name: Set up poetry
-        uses: abatilo/actions-poetry@v2
 
       - name: Install dependencies
         run: poetry install
