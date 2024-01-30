@@ -48,8 +48,7 @@ jobs:
       - name: Set up poetry
         uses: abatilo/actions-poetry@v2
 
-      - if: ${{ steps.cache-python.outputs.cache-hit != 'true' }}
-        name: Install dependencies
+      - name: Install dependencies
         run: poetry install
 
       - name: Lint
