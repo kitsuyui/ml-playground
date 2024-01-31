@@ -48,6 +48,10 @@ jobs:
             ${{ runner.os }}-build-${{ matrix.python }}-${{ hashFiles('**/poetry.lock') }}
             ${{ runner.os }}-build-${{ matrix.python }}-
 
+      # This step is needed to make sure that the correct Python version is used
+      - run: |
+          poetry env use python${{ matrix.python }}
+
       - name: Install dependencies
         run: poetry install
 
