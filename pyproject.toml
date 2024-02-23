@@ -9,9 +9,6 @@ packages = []
 [tool.poetry.dependencies]
 python = "^3.9"
 torch = "*"
-torchvision = "*"
-torchaudio = "*"
-torchtext = "*"
 # https://github.com/numpy/numpy/issues/23808
 numpy = [
     { version = ">=1.26.0", python = "=3.12" },
