@@ -3,3 +3,5 @@
 [default.extend-words]
 # nin is negative infinity
 nin = "nin"
+# integrated y
+iy = "iy"
