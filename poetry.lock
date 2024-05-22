@@ -2815,22 +2815,22 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars-lts-cpu"
-version = "0.20.26"
+version = "0.20.27"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "polars_lts_cpu-0.20.26-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:a045cd610d877e336452b2202082d17548a6c682e7b97e9c7247d9f1320cbbfc"},
-    {file = "polars_lts_cpu-0.20.26-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:4373406e7931e371673275be73b83ccba87211f4c194ec91a8dcc3b9f472609a"},
-    {file = "polars_lts_cpu-0.20.26-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:afccc531d15c69e5f6cca6f1e67d71f6cacfe628413a5b26268e3d6ed0ec21f4"},
-    {file = "polars_lts_cpu-0.20.26-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:a651d08e06aeaf6795f4f4ca7014fb772d357d36e551598a11fd6b1d634b955e"},
-    {file = "polars_lts_cpu-0.20.26-cp38-abi3-win_amd64.whl", hash = "sha256:3ee8fb296685da8fc3400993179d9b1b1869235e65a0dde69aef04e2922a245f"},
-    {file = "polars_lts_cpu-0.20.26.tar.gz", hash = "sha256:68be2668d188c33aa85299bd7d0f4b512194e6adbbd68b4559d3e230290bfaf1"},
+    {file = "polars_lts_cpu-0.20.27-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:4f5f59f73d9cdada7cb05bcc5a4cba6454d39a3154a940f4a8b900249be2860c"},
+    {file = "polars_lts_cpu-0.20.27-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:7ea787024b7225123eadc0092ee2c9d7daabc67379bdd46b095ae9ece4d69282"},
+    {file = "polars_lts_cpu-0.20.27-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cfc6847bab7591b46ebf73a213f5e5188417dcc39d903107e16e449700088723"},
+    {file = "polars_lts_cpu-0.20.27-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:0c3c8b157c1ee3ed17669da9a6f391eb61981c7603e18fa7256981fd5f0ed280"},
+    {file = "polars_lts_cpu-0.20.27-cp38-abi3-win_amd64.whl", hash = "sha256:db9d546629e1fecad84e2a6e1ca502a5bb50a10cfd20b7c17e7305a1701c02a0"},
+    {file = "polars_lts_cpu-0.20.27.tar.gz", hash = "sha256:a39395e5d45b194836cc593c8fa59769e8c1baaa4ba262341c6d5b5b3fb24d0a"},
 ]
 
 [package.extras]
 adbc = ["adbc-driver-manager", "adbc-driver-sqlite"]
-all = ["polars[adbc,async,cloudpickle,connectorx,deltalake,fastexcel,fsspec,gevent,iceberg,numpy,pandas,plot,pyarrow,pydantic,sqlalchemy,timezone,torch,xlsx2csv,xlsxwriter]"]
+all = ["polars[adbc,async,cloudpickle,connectorx,deltalake,fastexcel,fsspec,gevent,iceberg,numpy,pandas,plot,pyarrow,pydantic,sqlalchemy,timezone,xlsx2csv,xlsxwriter]"]
 async = ["nest-asyncio"]
 cloudpickle = ["cloudpickle"]
 connectorx = ["connectorx (>=0.3.2)"]
@@ -2849,7 +2849,6 @@ pydantic = ["pydantic"]
 pyxlsb = ["pyxlsb (>=1.0)"]
 sqlalchemy = ["pandas", "sqlalchemy"]
 timezone = ["backports-zoneinfo", "tzdata"]
-torch = ["torch"]
 xlsx2csv = ["xlsx2csv (>=0.8.0)"]
 xlsxwriter = ["xlsxwriter"]
 
