@@ -61,7 +61,7 @@ def test_nn_relu() -> None:
     assert y.subs(x, -1.0) == 0.0
     assert y.subs(x, 0.0) == 0.0
     assert y.subs(x, 1.0) == 1.0
-    assert sympy.limit(y, x, sympy.Float("-inf")) == 0.0
+    assert float(sympy.limit(y, x, sympy.Float("-inf"))) == 0.0
     assert sympy.limit(y, x, sympy.Float("inf")) == sympy.Float("inf")
 
 
@@ -91,8 +91,8 @@ def test_nn_sigmoid() -> None:
     assert pytest.approx(y.subs(x, -1.0)) == 0.268941421369995
     assert pytest.approx(y.subs(x, 0.0)) == 0.5
     assert pytest.approx(y.subs(x, 1.0)) == 0.731058578630005
-    assert sympy.limit(y, x, sympy.Float("-inf")) == 0.0
-    assert sympy.limit(y, x, sympy.Float("inf")) == 1.0
+    assert float(sympy.limit(y, x, sympy.Float("-inf"))) == 0.0
+    assert float(sympy.limit(y, x, sympy.Float("inf"))) == 1.0
 
 
 def test_nn_tanh() -> None:
@@ -122,8 +122,8 @@ def test_nn_tanh() -> None:
     assert pytest.approx(y.subs(x, -1.0)) == -0.761594155955765
     assert pytest.approx(y.subs(x, 0.0)) == 0.0
     assert pytest.approx(y.subs(x, 1.0)) == 0.761594155955765
-    assert sympy.limit(y, x, sympy.Float("-inf")) == -1.0
-    assert sympy.limit(y, x, sympy.Float("inf")) == 1.0
+    assert float(sympy.limit(y, x, sympy.Float("-inf"))) == -1.0
+    assert float(sympy.limit(y, x, sympy.Float("inf"))) == 1.0
 
 
 def test_cross_entropy_loss() -> None:

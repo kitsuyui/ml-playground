@@ -3,6 +3,7 @@
 ja: Sympy での Kelly 基準を扱う
 en: Sympy Kelly criterion
 """
+
 from dataclasses import dataclass
 from functools import cached_property
 from typing import Tuple
