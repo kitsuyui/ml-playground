@@ -2874,17 +2874,17 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars-lts-cpu"
-version = "1.5.0"
+version = "1.6.0"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "polars_lts_cpu-1.5.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:206b23223abe976d5a2020fde1bd1d7821a1bf41bbc17564df80a0fd25613b35"},
-    {file = "polars_lts_cpu-1.5.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:dfabcff9f66b0e37f416fe64f1de7435aa5afa2fb1aecb732f1eadb677635309"},
-    {file = "polars_lts_cpu-1.5.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1ddda60f6e6b5efab303abe5ba7e0b8ea841653c4efd00d26cd28075790e8352"},
-    {file = "polars_lts_cpu-1.5.0-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:1558ac31f27a20fcb2cdb314537018d10afc6be6de64e07e043ebfa1fbc04da2"},
-    {file = "polars_lts_cpu-1.5.0-cp38-abi3-win_amd64.whl", hash = "sha256:59b2125781a4f263634f7a91ebe5fc3fa80d8de164ebe962759adf139dfcd9d5"},
-    {file = "polars_lts_cpu-1.5.0.tar.gz", hash = "sha256:d9e39545a95818aad4633e04d6e7082fd3802276e53303f907176f50ae12e4de"},
+    {file = "polars_lts_cpu-1.6.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:f329eb7054e4c3d2af5b88e96bc11f07b8d5eb16da2438744aa8ee50756f8e6a"},
+    {file = "polars_lts_cpu-1.6.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:52cac2d2d901f3501137878f72a3e2957311dd73f26c20b0c2d7a68617070c3d"},
+    {file = "polars_lts_cpu-1.6.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0732c12fcd315cce596b0dcb877d3b3fcaafea365b53eb5ee08d350c9ad1fb3a"},
+    {file = "polars_lts_cpu-1.6.0-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:af1755e071289b1dd6cae1d961184575c07d787c049d45a3f12418c15b1f7a14"},
+    {file = "polars_lts_cpu-1.6.0-cp38-abi3-win_amd64.whl", hash = "sha256:b50a2d4e96036d25f4db04484b061514d741f8cc9d4f1b67f95531dce6ad5395"},
+    {file = "polars_lts_cpu-1.6.0.tar.gz", hash = "sha256:be719ee257a0b116e41786e99cbce7433122f899f8b0ed1f9daacb6d7ddcf69d"},
 ]
 
 [package.extras]
@@ -2904,7 +2904,7 @@ iceberg = ["pyiceberg (>=0.5.0)"]
 numpy = ["numpy (>=1.16.0)"]
 openpyxl = ["openpyxl (>=3.0.0)"]
 pandas = ["pandas", "polars-lts-cpu[pyarrow]"]
-plot = ["hvplot (>=0.9.1)", "polars-lts-cpu[pandas]"]
+plot = ["altair (>=5.4.0)"]
 pyarrow = ["pyarrow (>=7.0.0)"]
 pydantic = ["pydantic"]
 sqlalchemy = ["polars-lts-cpu[pandas]", "sqlalchemy"]
