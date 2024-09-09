@@ -58,8 +58,8 @@ def test_nn_relu() -> None:
     x = sympy.symbols("x")
     y = sympy.Max(0, x)
     assert sympy.latex(y) == r"\max\left(0, x\right)"
-    assert y.subs(x, -1.0) == 0.0
-    assert y.subs(x, 0.0) == 0.0
+    assert y.subs(x, -1.0) == 0
+    assert y.subs(x, 0.0) == 0
     assert y.subs(x, 1.0) == 1.0
     assert float(sympy.limit(y, x, sympy.Float("-inf"))) == 0.0
     assert sympy.limit(y, x, sympy.Float("inf")) == sympy.Float("inf")
