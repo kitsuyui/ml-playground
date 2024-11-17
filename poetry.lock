@@ -2933,17 +2933,17 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars-lts-cpu"
-version = "1.13.1"
+version = "1.14.0"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "polars_lts_cpu-1.13.1-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:305f9fc0156dbc07bef257c12b53c65cad468f94ce1587d889ae9ae0dc474964"},
-    {file = "polars_lts_cpu-1.13.1-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:e394be32075fc41968199083d678bf108ab3619c21c9fb34992734da3867a3f0"},
-    {file = "polars_lts_cpu-1.13.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:858e43a5f98e959179bd8f3482f5a5548ae398f959061d2e12f2573631f7a97e"},
-    {file = "polars_lts_cpu-1.13.1-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:499464689dc9ae09d89cac3581a771b78985431b7648bc37d036e4ce18cee93b"},
-    {file = "polars_lts_cpu-1.13.1-cp39-abi3-win_amd64.whl", hash = "sha256:fcf2df1baff1148f116467bfce11eceb24df488170e7e3ddc4b6cb73a2a62161"},
-    {file = "polars_lts_cpu-1.13.1.tar.gz", hash = "sha256:8c14b4ef75e6d4ae166e5e661842358c3b193a6e21e0ac0a072001488c930172"},
+    {file = "polars_lts_cpu-1.14.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:919522d2175f2090b707bb332b966a23207f8d8ef96e3614008997043fda8f62"},
+    {file = "polars_lts_cpu-1.14.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:30c4e8e177caffc677767885982eff51617d59ae8c3e1e36d6fdd8032479d5f8"},
+    {file = "polars_lts_cpu-1.14.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4c164231650450ecf0301a5491bfaa20fa44ac052d06596952af9f36f13f323c"},
+    {file = "polars_lts_cpu-1.14.0-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:c719921984211d0b83cd1055e45b03b09e9f3f7b9dda742a916bbc09021cbf1c"},
+    {file = "polars_lts_cpu-1.14.0-cp39-abi3-win_amd64.whl", hash = "sha256:b49dc3f9992b4986566a5cf7dc208ac02c30eac095a955abb65ee34959b23ea7"},
+    {file = "polars_lts_cpu-1.14.0.tar.gz", hash = "sha256:32638cb45bb9b66efc981f203f43ff4510335348b144f61ac0357b695e43f04e"},
 ]
 
 [package.extras]
