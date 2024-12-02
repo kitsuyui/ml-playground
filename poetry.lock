@@ -4518,12 +4518,13 @@ optree = ["optree (>=0.12.0)"]
 
 [[package]]
 name = "torchviz"
-version = "0.0.2"
+version = "0.0.3"
 description = "A small package to create visualizations of PyTorch execution graphs"
 optional = false
 python-versions = "*"
 files = [
-    {file = "torchviz-0.0.2.tar.gz", hash = "sha256:c790b4c993f783433604bf610cfa58bb0a031260be4ee5196a00c0884e768051"},
+    {file = "torchviz-0.0.3-py3-none-any.whl", hash = "sha256:5eab98d17cbe8a54727cfa6a527681cff613430fff8fc68f52302ca5fa26cdf1"},
+    {file = "torchviz-0.0.3.tar.gz", hash = "sha256:2e95f2fea7a31ec9549f2d6bbf446d75aeb6a9880fcf13e7dd843fdcdb4a3725"},
 ]
 
 [package.dependencies]
