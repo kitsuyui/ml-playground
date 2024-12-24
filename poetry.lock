@@ -2545,14 +2545,14 @@ files = [
 
 [[package]]
 name = "nvidia-nvjitlink-cu12"
-version = "12.6.85"
+version = "12.4.127"
 description = "Nvidia JIT LTO Library"
 optional = false
 python-versions = ">=3"
 files = [
-    {file = "nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:eedc36df9e88b682efe4309aa16b5b4e78c2407eac59e8c10a6a47535164369a"},
-    {file = "nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:cf4eaa7d4b6b543ffd69d6abfb11efdeb2db48270d94dfd3a452c24150829e41"},
-    {file = "nvidia_nvjitlink_cu12-12.6.85-py3-none-win_amd64.whl", hash = "sha256:e61120e52ed675747825cdd16febc6a0730537451d867ee58bee3853b1b13d1c"},
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:4abe7fef64914ccfa909bc2ba39739670ecc9e820c83ccc7a6ed414122599b83"},
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57"},
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1"},
 ]
 
 [[package]]
@@ -2927,17 +2927,18 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars-lts-cpu"
-version = "1.17.1"
+version = "1.18.0"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "polars_lts_cpu-1.17.1-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:abdaf10b6b533bd16674bdb3355ee1557fcb0c7bfe2010d77820cee6302f7318"},
-    {file = "polars_lts_cpu-1.17.1-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:329c420767e9cc0317e5d530df0e79de7082e59c82e00a305a703fa07bb42749"},
-    {file = "polars_lts_cpu-1.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:af4ade296b4cccd855a762cf3ddefb6a2e0145aaa939822e20340db39160ba4b"},
-    {file = "polars_lts_cpu-1.17.1-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:81300c1a006fa7cf782a3450212a1bc13666885315d5db561444f85cad7e4935"},
-    {file = "polars_lts_cpu-1.17.1-cp39-abi3-win_amd64.whl", hash = "sha256:5612323af369da9e2dc6139d9f70a304ed815ecec2c66d8b75636bdf5a95015e"},
-    {file = "polars_lts_cpu-1.17.1.tar.gz", hash = "sha256:d2717d17cd764223ea01e35ada2e3235327bc08040ecd41c71c803c7aad874fb"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:b30908b38408a4a028c65bc482a1f1ea3365213ec6012882841c3261809b5573"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:1838360a388a4d3472f634b1d94a1f8e5da029185b36c896447eb770e99f5a7d"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3e81deff5d5649919eeb27ad65e527d385346f1db465952c435977010cb4ecd9"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:83ff73f8a8a50eee3d64d27d93f848644bdfd2aa9f5b6b39bfaa2f387d76c372"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-win_amd64.whl", hash = "sha256:b1b820ca6d841680df8fcf87ba008dba16ff9b5a53562282c854549064d72725"},
+    {file = "polars_lts_cpu-1.18.0-cp39-abi3-win_arm64.whl", hash = "sha256:6aa3382d55e3c5a35be6ed566e8c086895c51fbd85c94267f78f9a3ad3c7604c"},
+    {file = "polars_lts_cpu-1.18.0.tar.gz", hash = "sha256:89f8906b3641b60421d06901ed21bc4c646fdbeeba277e9d8dff9ab46a6062d6"},
 ]
 
 [package.extras]
@@ -2962,7 +2963,7 @@ pyarrow = ["pyarrow (>=7.0.0)"]
 pydantic = ["pydantic"]
 sqlalchemy = ["polars-lts-cpu[pandas]", "sqlalchemy"]
 style = ["great-tables (>=0.8.0)"]
-timezone = ["backports-zoneinfo", "tzdata"]
+timezone = ["tzdata"]
 xlsx2csv = ["xlsx2csv (>=0.8.0)"]
 xlsxwriter = ["xlsxwriter"]
 
