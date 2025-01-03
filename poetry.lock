@@ -2900,18 +2900,18 @@ poetry-plugin = ["poetry (>=1.0,<2.0)"]
 
 [[package]]
 name = "polars-lts-cpu"
-version = "1.18.0"
+version = "1.19.0"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:b30908b38408a4a028c65bc482a1f1ea3365213ec6012882841c3261809b5573"},
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:1838360a388a4d3472f634b1d94a1f8e5da029185b36c896447eb770e99f5a7d"},
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3e81deff5d5649919eeb27ad65e527d385346f1db465952c435977010cb4ecd9"},
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:83ff73f8a8a50eee3d64d27d93f848644bdfd2aa9f5b6b39bfaa2f387d76c372"},
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-win_amd64.whl", hash = "sha256:b1b820ca6d841680df8fcf87ba008dba16ff9b5a53562282c854549064d72725"},
-    {file = "polars_lts_cpu-1.18.0-cp39-abi3-win_arm64.whl", hash = "sha256:6aa3382d55e3c5a35be6ed566e8c086895c51fbd85c94267f78f9a3ad3c7604c"},
-    {file = "polars_lts_cpu-1.18.0.tar.gz", hash = "sha256:89f8906b3641b60421d06901ed21bc4c646fdbeeba277e9d8dff9ab46a6062d6"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:07846ed18800067e92848487d2c6befac3fad50d45719326afdf6d9d1a56c4b0"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:0d88eb211a57063e5bcb809e49d03e0c891f0cf4df7482f3661a0fe8eaaab56f"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:86f586dc0e5c4292235e87218bbba79f4eefe465a5fdc271ee4410a1e6f3c25a"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:2e5e104807663fc0fbd80d57c54b6b91ee52b4f62bbb7796eb7133d4d8215a72"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-win_amd64.whl", hash = "sha256:944445bb37f927620b923abfb5b37ec91d0ecc4c620613bf94c706ffdb0a7053"},
+    {file = "polars_lts_cpu-1.19.0-cp39-abi3-win_arm64.whl", hash = "sha256:29976c562d8ad169f7c4ebdfb175a47b6789d2ca66db184bd82662f627d89842"},
+    {file = "polars_lts_cpu-1.19.0.tar.gz", hash = "sha256:6b404b092173ab5d21cdab1e3406240c34ccace6f1954a780436333f4fe5d5bb"},
 ]
 
 [package.extras]
