@@ -1128,13 +1128,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "human-readable"
-version = "1.4.1"
+version = "2.0.0"
 description = "Human Readable"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "human_readable-1.4.1-py3-none-any.whl", hash = "sha256:cd82fc5a260f30419aab1140b77048883c11c48678ec778b75ac6e6bc971b97d"},
-    {file = "human_readable-1.4.1.tar.gz", hash = "sha256:c81bfa035d2881833799546a6f12e71ba4c1efa7dda6a8bec10fd6ba7850211f"},
+    {file = "human_readable-2.0.0-py3-none-any.whl", hash = "sha256:a02daeb08fb1a562320e90032787b31f0a14c32e719fab1417f67fb0ad7d1157"},
+    {file = "human_readable-2.0.0.tar.gz", hash = "sha256:56eb9445e560ccfa0695908ae2ec8b0081b86d49eba1a0833bc0ae0f44d6c4e9"},
 ]
 
 [[package]]
