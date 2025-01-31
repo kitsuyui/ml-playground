@@ -17,7 +17,7 @@ dependencies = [
     "jupyter",
     "notebook",
     # TODO: Unpin
-    "matplotlib==3.9.4",
+    "matplotlib==3.10.0",
     "pillow",
     # TODO: Unpin
     "spacy<=3.8.3",
