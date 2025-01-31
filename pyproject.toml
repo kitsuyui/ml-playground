@@ -5,22 +5,22 @@ classifiers = [
     "Private :: Do Not Upload",
 ]
 description = ""
-requires-python = ">=3.9"
+
+# https://numpy.org/neps/nep-0029-deprecation_policy.html
+# Dec 18, 2024, Python 3.9 was dropped.
+requires-python = ">=3.10"
 
 dependencies = [
     "torch",
     "numpy",
-    # WORKAROUND: scipy.sparse 1.13.0 does not work as I expected.
-    "scipy<1.13.0",
+    "scipy",
     "scikit-learn",
     "einops",
     "jupyter",
     "notebook",
-    # TODO: Unpin
-    "matplotlib==3.9.4",
+    "matplotlib",
     "pillow",
-    # TODO: Unpin
-    "spacy<=3.8.3",
+    "spacy",
     "pandas",
     "geopy",
     "sympy",
@@ -92,4 +92,4 @@ ignore_fail = "return_non_zero"
 [tool.ruff]
 line-length = 79
 # numpy has ended support for Python 3.8 due to NEP 29. https://numpy.org/neps/nep-0029-deprecation_policy.html
-target-version = "py39"
+target-version = "py310"

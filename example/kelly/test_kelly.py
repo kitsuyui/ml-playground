@@ -27,18 +27,18 @@ def test_kelly() -> None:
         assets=2_000_000,
     )
 
-    assert kelly.optimal_fraction == pytest.approx(
-        0.0595, 0.001
-    ), "Optimal f ≒ 0.0595"
-    assert kelly.optimal_bets == pytest.approx(
-        119_075, 0.1
-    ), "119,075 円まで買うのが正解"
-    assert kelly.optimal_bet_units == pytest.approx(
-        476, 0.1
-    ), "476 株買うのが正解"
-    assert kelly.optimal_growth == pytest.approx(
-        1.00119, 1e-5
-    ), "0.119% の複利で増える"
+    assert kelly.optimal_fraction == pytest.approx(0.0595, 0.001), (
+        "Optimal f ≒ 0.0595"
+    )
+    assert kelly.optimal_bets == pytest.approx(119_075, 0.1), (
+        "119,075 円まで買うのが正解"
+    )
+    assert kelly.optimal_bet_units == pytest.approx(476, 0.1), (
+        "476 株買うのが正解"
+    )
+    assert kelly.optimal_growth == pytest.approx(1.00119, 1e-5), (
+        "0.119% の複利で増える"
+    )
 
 
 def test_kelly_error() -> None:
