@@ -20,7 +20,7 @@ dependencies = [
     "matplotlib==3.9.4",
     "pillow",
     # TODO: Unpin
-    "spacy<=3.8.3",
+    "spacy<=3.8.4",
     "pandas",
     "geopy",
     "sympy",
