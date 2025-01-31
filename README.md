@@ -40,10 +40,10 @@ By doing so, I will ensure that sample codes always function as samples.
 
 ## Install dependencies
 
-Install dependencies with [poetry](https://python-poetry.org/).
+Install dependencies with [uv](https://docs.astral.sh/uv/).
 
 ```sh
-poetry install
+uv sync
 ```
 
 ## Additional installation
@@ -55,38 +55,23 @@ Please install it according to https://github.com/crate-ci/typos#install
 
 ## Run poe tasks
 
-## [Install poe as a poetry plugin](https://github.com/nat-n/poethepoet#installation)
-
-```sh
-poetry self add 'poethepoet[poetry_plugin]'
-```
-
 ## Run tests
 
 ```sh
-poetry poe test
+uv run poe test
 ```
 
 ## Format
 
 ```sh
-poetry poe format
+uv run poe format
 ```
-
-- [isort](https://pycqa.github.io/isort/) for import sorting
-- [black](https://black.readthedocs.io/en/stable/) for formatting
-- [pyupgrade](https://github.com/asottile/pyupgrade) for upgrading syntax to the latest version of Python
 
 ## Lint
 
 ```sh
-poetry poe check
+uv run poe check
 ```
-
-- [mypy](https://mypy.readthedocs.io/en/stable/) for static type checking
-- [flake8](https://flake8.pycqa.org/en/latest/) for linting
-- [black](https://black.readthedocs.io/en/stable/) for formatting check
-- [isort](https://pycqa.github.io/isort/) for import sorting check
 
 # LICENSE
 
