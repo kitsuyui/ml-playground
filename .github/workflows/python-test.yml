@@ -14,7 +14,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: ["3.9", "3.10", "3.11", "3.12"]
+        # Currently spacy does not support Python 3.13
+        # python: ["3.10", "3.11", "3.12", "3.13"]
+        python: ["3.10", "3.11", "3.12"]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,7 +59,7 @@ jobs:
         run: uv run poe coverage-xml
 
       - name: Upload coverage report to Codecov
-        if: matrix.python == '3.12'
+        if: matrix.python == '3.13'
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

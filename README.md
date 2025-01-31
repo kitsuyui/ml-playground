@@ -2,10 +2,10 @@
 
 [![codecov](https://codecov.io/gh/kitsuyui/ml-playground/branch/main/graph/badge.svg?token=DW0671X9QF)](https://codecov.io/gh/kitsuyui/ml-playground)
 [
-![python-v3.9](https://img.shields.io/badge/python-v3.9-blue)
 ![python-v3.10](https://img.shields.io/badge/python-v3.10-blue)
 ![python-v3.11](https://img.shields.io/badge/python-v3.11-blue)
-![python-v3.11](https://img.shields.io/badge/python-v3.12-blue)
+![python-v3.12](https://img.shields.io/badge/python-v3.12-blue)
+![python-v3.13](https://img.shields.io/badge/python-v3.13-blue)
 ](https://github.com/kitsuyui/ml-playground/actions/workflows/python-test.yml?query=branch%3Amain)
 
 ## en: What is this?
@@ -13,28 +13,15 @@
 This is a repository for machine learning playground and sample codes.
 I want to organize samples for myself because sample codes for machine learning are often of low quality.
 
-- GitHub Actions runs tests for each version of Python (3.9 - 3.12) always.
-  - Python 3.8, which is the LTS of Python, will be provided with security fixes until 2024. https://devguide.python.org/versions/
-  - numpy has ended support for Python 3.8 due to NEP 29. https://numpy.org/neps/nep-0029-deprecation_policy.html 
+- GitHub Actions runs tests for each versions of Python. (Currently 3.10 - 3.12)
+  - This range is determined by lifecycle of Python versions and libraries.
+  - Python support table: https://devguide.python.org/versions/
+  - numpy support table: https://numpy.org/neps/nep-0029-deprecation_policy.html 
 - [Renovate](https://github.com/apps/renovate) continuously updates dependencies.
 - [Codecov](https://app.codecov.io/gh/kitsuyui/ml-playground) measures test coverage.
 - [nbmake](https://github.com/treebeardtech/nbmake) tests Jupyter ipynb files.
 
 By doing so, I will ensure that sample codes always function as samples.
-
-## ja: これは何？
-
-機械学習の実験場・サンプルコードのリポジトリです。
-機械学習周りのサンプルコードはクォリティが高くないことが多いので、自分用にサンプルを整理したいと考えています。
-
-- GitHub Actions で常に各バージョンの Python (3.9 - 3.12) でテストが実行されます。
-  - Python の　LTS である 3.8 は 2024 年まで security fix が提供されます。 https://devguide.python.org/versions/
-  - numpy は NEP 29 により Python 3.8 のサポートを終了しています。 https://numpy.org/neps/nep-0029-deprecation_policy.html
-- [Renovate](https://github.com/apps/renovate) が継続的に依存パッケージを更新します。
-- [Codecov](https://app.codecov.io/gh/kitsuyui/ml-playground) がテストカバレッジを計測します。
-- [nbmake](https://github.com/treebeardtech/nbmake) で Jupyter の ipynb ファイルもテストします。
-
-これらによって、サンプルコードが常にサンプルとして機能することを保証していきます。
 
 # Usage
 

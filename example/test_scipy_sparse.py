@@ -121,7 +121,7 @@ def test_sparse_vector() -> None:
     # CSR (Compressed Sparse Row)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_array.html#scipy.sparse.csr_array
     vec_csr = sps.csr_array(base_vector)
-    assert vec_csr.shape == (1, 12)
+    assert vec_csr.shape == (12,)
     assert (vec_csr.toarray() == base_vector).all()
     # internal representation
     assert (vec_csr.data == np.array([1, 4, 2, 3])).all()
@@ -129,31 +129,47 @@ def test_sparse_vector() -> None:
 
     # CSC (Compressed Sparse Column)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_array.html#scipy.sparse.csc_array
+    base_vector = np.array(
+        [
+            [1],
+            [0],
+            [0],
+            [4],
+            [0],
+            [2],
+            [0],
+            [0],
+            [0],
+            [0],
+            [0],
+            [3],
+        ]
+    )
     vec_csc = sps.csc_array(base_vector)
-    assert vec_csc.shape == (1, 12)
+    assert vec_csc.shape == (12, 1)
     assert (vec_csc.toarray() == base_vector).all()
     # internal representation
     assert (vec_csc.data == np.array([1, 4, 2, 3])).all()
-    assert (vec_csc.indices == np.array([0, 0, 0, 0])).all()
+    assert (vec_csc.indices == np.array([0, 3, 5, 11])).all
 
     # COO (Coordinate)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_array.html#scipy.sparse.coo_array
     vec_coo = sps.coo_array(base_vector)
-    assert vec_coo.shape == (1, 12)
+    assert vec_coo.shape == (12, 1)
     assert (vec_coo.toarray() == base_vector).all()
     # internal representation
     assert (vec_coo.data == np.array([1, 4, 2, 3])).all()
-    assert (vec_coo.row == np.array([0, 0, 0, 0])).all()
-    assert (vec_coo.col == np.array([0, 3, 5, 11])).all()
+    assert (vec_coo.row == np.array([0, 3, 5, 11])).all()
+    assert (vec_coo.col == np.array([0, 0, 0, 0])).all()
 
     # DIA (Diagonal)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dia_array.html#scipy.sparse.dia_array
     vec_dia = sps.dia_array(base_vector)
-    assert vec_dia.shape == (1, 12)
+    assert vec_dia.shape == (12, 1)
     assert (vec_dia.toarray() == base_vector).all()
 
     # BSR (Block Sparse Row)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.bsr_array.html#scipy.sparse.bsr_array
     vec_bsr = sps.bsr_array(base_vector)
-    assert vec_bsr.shape == (1, 12)
+    assert vec_bsr.shape == (12, 1)
     assert (vec_bsr.toarray() == base_vector).all()

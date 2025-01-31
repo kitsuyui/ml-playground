@@ -219,15 +219,15 @@ def test_regression_loss_functions() -> None:
     )
 
     for loss_function in loss_functions:
-        assert loss_function(input1, target) > loss_function(
-            input2, target
-        ), f"{loss_function}"
-        assert loss_function(input2, target) > loss_function(
-            input3, target
-        ), f"{loss_function}"
-        assert loss_function(input3, target) > loss_function(
-            input4, target
-        ), f"{loss_function}"
+        assert loss_function(input1, target) > loss_function(input2, target), (
+            f"{loss_function}"
+        )
+        assert loss_function(input2, target) > loss_function(input3, target), (
+            f"{loss_function}"
+        )
+        assert loss_function(input3, target) > loss_function(input4, target), (
+            f"{loss_function}"
+        )
         assert loss_function(input4, target) == 0.0, f"{loss_function}"
 
 
@@ -246,12 +246,12 @@ def test_classification_loss_functions() -> None:
     )
 
     for loss_function in loss_functions:
-        assert loss_function(input1, target) > loss_function(
-            input2, target
-        ), f"{loss_function}"
-        assert loss_function(input2, target) > loss_function(
-            input3, target
-        ), f"{loss_function}"
+        assert loss_function(input1, target) > loss_function(input2, target), (
+            f"{loss_function}"
+        )
+        assert loss_function(input2, target) > loss_function(input3, target), (
+            f"{loss_function}"
+        )
         assert loss_function(input3, target) == 0.0, f"{loss_function}"
 
 
