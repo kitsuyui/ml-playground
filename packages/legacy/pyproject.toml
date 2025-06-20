@@ -15,6 +15,7 @@ dependencies = [
     "torch",
     "numpy",
     "scipy",
+    "scipy-stubs",
     "scikit-learn",
     "einops",
     "jupyter",

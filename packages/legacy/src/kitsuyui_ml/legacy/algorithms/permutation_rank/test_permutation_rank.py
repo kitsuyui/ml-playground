@@ -57,5 +57,5 @@ def test_permutation_rank() -> None:
     assert permutation_rank(["D", "C", "A", "B"], items) == 22
     assert permutation_rank(["D", "C", "B", "A"], items) == 23
 
-    items = range(18)
-    assert permutation_rank([0, 1, 2], items) == 0
+    items2 = list(range(18))
+    assert permutation_rank([0, 1, 2], items2) == 0

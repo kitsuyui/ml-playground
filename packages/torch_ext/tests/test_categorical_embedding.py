@@ -47,14 +47,14 @@ def test_torch_jit_ready() -> None:
         embedding_dim=embedding_dim,
         dropout=0.1,
     )
-    ce = torch.jit.script(ce)
+    ce_jit = torch.jit.script(ce)
     x = torch.tensor(
         [1, 2, 3],
     )
     assert x.shape == (3,)
     assert x.dtype == torch.int64
-    y = ce(x)
+    y = ce_jit(x)
     assert y.shape == (3, 4)
     assert y.dtype == torch.float32
     assert (*x.shape, embedding_dim) == y.shape
-    assert ce.code is not None
+    assert ce_jit.code is not None

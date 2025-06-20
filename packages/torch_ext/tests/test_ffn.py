@@ -10,5 +10,5 @@ def test_ffn() -> None:
 
 def test_ffn_torchscript_ready() -> None:
     ffn = FFN(10, 20)
-    ffn = torch.jit.script(ffn)
-    assert ffn(torch.randn(5, 10)).shape == (5, 10)
+    ffn_jit = torch.jit.script(ffn)
+    assert ffn_jit(torch.randn(5, 10)).shape == (5, 10)

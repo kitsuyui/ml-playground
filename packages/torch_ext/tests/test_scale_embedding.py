@@ -28,13 +28,13 @@ def test_torch_jit_ready() -> None:
     x = torch.randint(num_embeddings, (200,))
 
     se = ScaleEmbedding(num_embeddings, embedding_dim)
-    se = torch.jit.script(se)
-    y = se(x)
+    se_jit = torch.jit.script(se)
+    y = se_jit(x)
     assert y.shape == (200, 100)
-    assert se.code is not None
+    assert se_jit.code is not None
 
     se2 = ScaleEmbedding2(num_embeddings, embedding_dim)
-    se2 = torch.jit.script(se2)
-    y2 = se2(x)
+    se2_jit = torch.jit.script(se2)
+    y2 = se2_jit(x)
     assert y2.shape == (200, 100)
-    assert se2.code is not None
+    assert se2_jit.code is not None

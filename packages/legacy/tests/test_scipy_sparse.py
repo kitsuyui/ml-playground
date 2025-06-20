@@ -66,8 +66,7 @@ def test_sparse_matrix() -> None:
     assert (mat_bsr.data == np.array([[[1]], [[4]], [[2]], [[3]]])).all()
     # assert (mat_bsr.indices == np.array([0, 3, 1, 2])).all()
     # assert mat_bsr.indptr == np.array([0, 1, 2, 3, 4])
-    assert (mat_bsr.blocksize == np.array([1, 1])).all()
-
+    assert (mat_bsr.blocksize == np.array([1, 1])).all()  # type: ignore
     # DOK (Dictionary of Keys)
     # https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dok_matrix.html
     mat_dok = sps.dok_matrix(base_matrix)

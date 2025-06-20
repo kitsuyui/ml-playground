@@ -48,16 +48,16 @@ PositionalEncoding2(
 def test_torch_jit_ready() -> None:
     """Test that the module is torch.jit.script() ready."""
     pe = PositionalEncoding(d_model=4, dropout=0.0)
-    pe = torch.jit.script(pe)
+    pe_jit = torch.jit.script(pe)  # type: ignore
     x = torch.Tensor(
         [1.0, 2.0, 3.0, 4.0],
     )
-    y = pe(x)
+    y = pe_jit(x)
     assert y.shape == (4, 1, 4)
-    assert pe.code is not None
+    assert pe_jit.code is not None
 
     pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
-    pe2 = torch.jit.script(pe2)
-    y2 = pe2(x)
+    pe2_jit = torch.jit.script(pe2)
+    y2 = pe2_jit(x)
     assert y2.shape == (4, 1, 4)
-    assert pe2.code is not None
+    assert pe2_jit.code is not None
