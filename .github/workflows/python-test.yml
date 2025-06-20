@@ -56,14 +56,14 @@ jobs:
         run: uv run poe test
 
       - name: Coverage
-        run: uv run poe coverage-xml
+        run: uv run poe coverage
 
       - name: Upload coverage report to Codecov
-        if: matrix.python == '3.13'
+        if: matrix.python == '3.12'
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
+          files: coverage.xml
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
