@@ -1,8 +1,8 @@
-# kitsuyui.hello
+# kitsuyui_ml.legacy
 
 ## What is this?
 
-This is a repository for creating sample code for publishing to PyPI.
+- This package is an example.
 
 # LICENSE
 

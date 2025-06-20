@@ -12,6 +12,7 @@ members = [
     "dev-shared",
     "kitsuyui-ml-animal",
     "kitsuyui-ml-hello",
+    "kitsuyui-ml-hello2",
     "kitsuyui-ml-legacy",
     "ml-playground-root",
 ]
@@ -1266,6 +1267,11 @@ wheels = [
 ]
 
 [[package]]
+name = "kitsuyui-hello"
+version = "0.7.1.dev98+g454cad8"
+source = { git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello#454cad8714fd409ce8f23013be086f60ba1e8345" }
+
+[[package]]
 name = "kitsuyui-ml-animal"
 source = { editable = "packages/animal" }
 
@@ -1289,6 +1295,24 @@ dev = [
 ]
 
 [package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "dev-shared", virtual = "packages/dev-shared" }]
+
+[[package]]
+name = "kitsuyui-ml-hello2"
+source = { editable = "packages/hello2" }
+dependencies = [
+    { name = "kitsuyui-hello" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "dev-shared" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "kitsuyui-hello", git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "dev-shared", virtual = "packages/dev-shared" }]

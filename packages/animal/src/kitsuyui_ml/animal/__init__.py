@@ -24,7 +24,9 @@ class Animal:
 
     @abc.abstractmethod
     def speak(self):
-        raise NotImplementedError("Subclass must implement abstract method")  # pragma: no cover
+        raise NotImplementedError(
+            "Subclass must implement abstract method"
+        )  # pragma: no cover
 
 
 class Dog(Animal):

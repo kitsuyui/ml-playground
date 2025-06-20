@@ -1,0 +1,46 @@
+[project]
+name = "kitsuyui_ml.hello2"
+dynamic = ["version"]
+description = "A playground for publishing packages to PyPI"
+requires-python = ">=3.10"
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+    {name = "Yui KITSU", email = "kitsuyui+github@kitsuyui.com"}
+]
+classifiers = [
+    "Private :: Do Not Upload",
+]
+dependencies = [
+    "kitsuyui-hello",
+]
+
+[project.urls]
+Homepage = "https://github.com/kitsuyui/ml-playground"
+
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+package-data = { "*" = ["README.md, LICENSE", "py.typed", "*.pyi"] }
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["kitsuyui_ml.hello2"]
+
+[tool.setuptools_scm]
+version_file = "./src/kitsuyui_ml/hello2/_version.py"
+root = "../.."
+
+[tool.uv]
+dev-dependencies = [
+    "dev-shared",
+]
+
+[tool.uv.sources]
+dev-shared = { workspace = true }
+kitsuyui-hello = { git = "https://github.com/kitsuyui/pypi-playground.git", subdirectory = "packages/kitsuyui-hello" }
+
+[tool.poe]
+include = "../dev-shared/poe.tasks.toml"
