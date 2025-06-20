@@ -24,17 +24,12 @@ class Animal:
 
     @abc.abstractmethod
     def speak(self):
-        raise NotImplementedError("Subclass must implement abstract method")
+        raise NotImplementedError("Subclass must implement abstract method")  # pragma: no cover
 
 
 class Dog(Animal):
     def speak(self):
         return "Bark"
-
-
-def example():
-    dog = Dog("Rex")
-    print(dog.speak())  # Bark
 
 
 __all__ = [
