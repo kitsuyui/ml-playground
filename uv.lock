@@ -14,6 +14,7 @@ members = [
     "kitsuyui-ml-hello",
     "kitsuyui-ml-hello2",
     "kitsuyui-ml-legacy",
+    "kitsuyui-ml-torch-ext",
     "ml-playground-root",
 ]
 
@@ -1385,6 +1386,24 @@ dev = [
     { name = "pandas-stubs" },
     { name = "syrupy" },
 ]
+
+[[package]]
+name = "kitsuyui-ml-torch-ext"
+source = { editable = "packages/torch_ext" }
+dependencies = [
+    { name = "torch" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "dev-shared" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "torch" }]
+
+[package.metadata.requires-dev]
+dev = [{ name = "dev-shared", virtual = "packages/dev-shared" }]
 
 [[package]]
 name = "kiwisolver"

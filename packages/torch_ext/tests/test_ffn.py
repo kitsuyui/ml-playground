@@ -1,6 +1,6 @@
 import torch
 
-from kitsuyui_ml.legacy.torch.ffn import FFN
+from kitsuyui_ml.torch_ext.ffn import FFN
 
 
 def test_ffn() -> None:

@@ -1,6 +1,6 @@
 import torch
 
-from kitsuyui_ml.legacy.torch.positional_encoding import (
+from kitsuyui_ml.torch_ext.positional_encoding import (
     PositionalEncoding,
     PositionalEncoding2,
 )

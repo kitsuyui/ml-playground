@@ -1,6 +1,6 @@
 import torch
 
-from kitsuyui_ml.legacy.torch.lcm_cat import lcm_cat
+from kitsuyui_ml.torch_ext.lcm_cat import lcm_cat
 
 
 def test_lcm_cat_batch_first_false() -> None:
