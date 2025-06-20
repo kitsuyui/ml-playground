@@ -1,95 +1,40 @@
 [project]
-name = "ml-playground"
+name = "ml-playground-root"
 dynamic = ["version"]
 classifiers = [
     "Private :: Do Not Upload",
 ]
-description = ""
-
+# https://devguide.python.org/versions/
 # https://numpy.org/neps/nep-0029-deprecation_policy.html
-# Dec 18, 2024, Python 3.9 was dropped.
 requires-python = ">=3.10"
 
-dependencies = [
-    "torch",
-    "numpy",
-    "scipy",
-    "scikit-learn",
-    "einops",
-    "jupyter",
-    "notebook",
-    "matplotlib",
-    "pillow",
-    "spacy",
-    "pandas",
-    "geopy",
-    "sympy",
-    # "polars",
-    "polars-lts-cpu",
-    "timevec",
-    "pyarrow",
-    "human-readable",
-    "seaborn",
-    "torchviz",
-    "onnx",
-    "graphviz",
-]
+[project.urls]
+Homepage = "https://github.com/kitsuyui/ml-playground"
 
-[tool.setuptools.packages.find]
-where = ["example/"]
+[tool.uv.workspace]
+members = ["packages/*"]
 
 [tool.uv]
 dev-dependencies = [
-    "pytest",
-    "pytest-cov",
-    "syrupy",
     "poethepoet",
-    "nbmake",
-    "pytest-xdist",
-    "pandas-stubs",
-    "ruff",
 ]
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+py-modules = [
+    "kitsuyui_ml",
+]
+
 [tool.poe.tasks]
-coverage-xml = "pytest --cov=example example --doctest-modules --cov-report=xml"
 
-[tool.poe.tasks.test-all]
-sequence = [{ ref = "test" }, { ref = "test-notebooks" }]
-ignore_fail = "return_non_zero"
-
-[tool.poe.tasks.test-notebooks]
-cmd = "pytest -n auto --nbmake ${target}"
-args = [
-    { name = "target", default = "notebooks", multiple = true, positional = true },
-]
-
-[tool.poe.tasks.test]
-cmd = "pytest ${target}"
-args = [
-    { name = "target", default = "example", multiple = true, positional = true },
-]
-
-[tool.poe.tasks.check]
-sequence = [
-    { cmd = "ruff check ${target}" },
-]
-args = [
-    { name = "target", default = "example", multiple = true, positional = true },
-]
-ignore_fail = "return_non_zero"
-
-[tool.poe.tasks.format]
-sequence = [{ cmd = "ruff format ${target}" }]
-args = [
-    { name = "target", default = "example", multiple = true, positional = true },
-]
-ignore_fail = "return_non_zero"
-
-[tool.ruff]
-line-length = 79
-# numpy has ended support for Python 3.8 due to NEP 29. https://numpy.org/neps/nep-0029-deprecation_policy.html
-target-version = "py310"
+format = { cmd = "./bin/run-each format" }
+check = { cmd = "./bin/run-each check" }
+syntax_check = { cmd = "./bin/run-each syntax_check" }
+sync-all = { cmd = "./bin/run-each sync" }
+type_check = { cmd = "./bin/run-each type_check" }
+test = { cmd = "./bin/run-each test" }
+coverage = { cmd = "./bin/run-each coverage" }
+build = { cmd = "./bin/run-each build" }

@@ -2,3 +2,4 @@ gibo dump Linux
 gibo dump Windows
 gibo dump macOS
 gibo dump Python
+echo packages/*/src/**/_version.py
