@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import Tuple
 
-import sympy
+import sympy  # type: ignore
 
 ZERO_TO_ONE = sympy.Interval(0.0, 1.0, left_open=False, right_open=False)
 

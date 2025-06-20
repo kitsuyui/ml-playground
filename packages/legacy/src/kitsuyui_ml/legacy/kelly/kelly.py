@@ -9,7 +9,7 @@ from typing import Dict, List, Tuple
 
 import scipy
 import scipy.optimize
-import sympy
+import sympy  # type: ignore
 
 from .sympy_kelly import SympyKelly
 

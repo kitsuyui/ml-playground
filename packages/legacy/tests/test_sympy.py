@@ -1,5 +1,5 @@
 import numpy as np
-import sympy
+import sympy  # type: ignore
 
 
 def test_sympy() -> None:

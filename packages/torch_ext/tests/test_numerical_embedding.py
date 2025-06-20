@@ -46,14 +46,14 @@ def test_torch_jit_ready() -> None:
         num_values=6,
         dropout=0.1,
     )
-    ne = torch.jit.script(ne)
+    ne_jit = torch.jit.script(ne)
     x = torch.tensor(
         [0.1, 0.2, 0.3, 0.4, 0.5, 0.1],
     )
     assert x.shape == (6,)
     assert x.dtype == torch.float32
-    y = ne(x)
+    y = ne_jit(x)
     assert y.shape == (6, 4)
     assert y.dtype == torch.float32
     assert (*x.shape, embedding_dim) == y.shape
-    assert ne.code is not None
+    assert ne_jit.code is not None

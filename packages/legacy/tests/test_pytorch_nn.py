@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-import sympy
+import sympy  # type: ignore
 import torch
 import torch.nn as nn
 
