@@ -1,6 +1,6 @@
 import torch
 
-from kitsuyui_ml.legacy.torch.scale_embedding import ScaleEmbedding, ScaleEmbedding2
+from kitsuyui_ml.torch_ext.scale_embedding import ScaleEmbedding, ScaleEmbedding2
 
 
 def test_scale_embedding() -> None:

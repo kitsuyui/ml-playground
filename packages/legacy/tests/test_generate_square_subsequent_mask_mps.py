@@ -1,7 +1,7 @@
 import os
 
-import torch
-from torch.nn import Transformer
+# import torch
+# from torch.nn import Transformer
 
 
 def running_on_github_actions() -> bool:

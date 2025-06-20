@@ -1,6 +1,6 @@
 import torch
 
-from kitsuyui_ml.legacy.torch.numerical_embedding import NumericalEmbedding
+from kitsuyui_ml.torch_ext.numerical_embedding import NumericalEmbedding
 
 
 def test_numerical_embedding() -> None:

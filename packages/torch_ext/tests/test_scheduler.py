@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from kitsuyui_ml.legacy.torch.scheduler import LRScheduler
+from kitsuyui_ml.torch_ext.scheduler import LRScheduler
 
 
 def test_scheduler() -> None:
