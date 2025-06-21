@@ -51,3 +51,18 @@ def test_build_vocab() -> None:
     assert vocab.itos[5] == "of"
     assert vocab.stoi["python"] == 6
     assert vocab.itos[6] == "python"
+
+    # when specials are not provided
+
+    vocab_no_specials = build_vocab(texts, simple_tokenizer)
+    assert len(vocab_no_specials) == 5  # 5 unique words
+    assert vocab_no_specials.stoi["hello"] == 0
+    assert vocab_no_specials.itos[0] == "hello"
+    assert vocab_no_specials.stoi["world"] == 1
+    assert vocab_no_specials.itos[1] == "world"
+    assert vocab_no_specials.stoi["again"] == 2
+    assert vocab_no_specials.itos[2] == "again"
+    assert vocab_no_specials.stoi["of"] == 3
+    assert vocab_no_specials.itos[3] == "of"
+    assert vocab_no_specials.stoi["python"] == 4
+    assert vocab_no_specials.itos[4] == "python"
