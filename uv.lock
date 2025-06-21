@@ -14,6 +14,7 @@ members = [
     "kitsuyui-ml-hello",
     "kitsuyui-ml-hello2",
     "kitsuyui-ml-legacy",
+    "kitsuyui-ml-mini-vocab",
     "kitsuyui-ml-torch-ext",
     "ml-playground-root",
 ]
@@ -1389,6 +1390,20 @@ dev = [
     { name = "pandas-stubs" },
     { name = "syrupy" },
 ]
+
+[[package]]
+name = "kitsuyui-ml-mini-vocab"
+source = { editable = "packages/mini_vocab" }
+
+[package.dev-dependencies]
+dev = [
+    { name = "dev-shared" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "dev-shared", virtual = "packages/dev-shared" }]
 
 [[package]]
 name = "kitsuyui-ml-torch-ext"
