@@ -21,7 +21,7 @@ $ pip install 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml
 ### Install via uv
 
 ```sh
-$ uv add 'https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.mini_vocab&subdirectory=packages/mini_vocab'
+$ uv add 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.mini_vocab&subdirectory=packages/mini_vocab'
 ```
 
 # LICENSE

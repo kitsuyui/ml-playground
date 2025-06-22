@@ -23,7 +23,7 @@ $ pip install 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml
 ### Install via uv
 
 ```sh
-$ uv add 'https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.torch_ext&subdirectory=packages/torch_ext'
+$ uv add 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.torch_ext&subdirectory=packages/torch_ext'
 ```
 
 # LICENSE
