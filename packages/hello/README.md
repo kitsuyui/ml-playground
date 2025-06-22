@@ -18,7 +18,7 @@ $ pip install 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml
 ### Install via uv
 
 ```sh
-$ uv add 'https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.hello&subdirectory=packages/hello'
+$ uv add 'git+https://github.com/kitsuyui/ml-playground.git#egg=kitsuyui_ml.hello&subdirectory=packages/hello'
 ```
 
 # LICENSE
