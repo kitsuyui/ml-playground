@@ -14,8 +14,8 @@ Homepage = "https://github.com/kitsuyui/ml-playground"
 [tool.uv.workspace]
 members = ["packages/*"]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "poethepoet",
 ]
 
