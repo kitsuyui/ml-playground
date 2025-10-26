@@ -14,6 +14,11 @@ dependencies = [
     "torch",
 ]
 
+[dependency-groups]
+dev = [
+    "dev-shared",
+]
+
 [project.urls]
 Homepage = "https://github.com/kitsuyui/ml-playground"
 
@@ -32,11 +37,6 @@ include = ["kitsuyui_ml.torch_ext"]
 [tool.setuptools_scm]
 version_file = "./src/kitsuyui_ml/torch_ext/_version.py"
 root = "../.."
-
-[tool.uv]
-dev-dependencies = [
-    "dev-shared",
-]
 
 [tool.uv.sources]
 dev-shared = { workspace = true }
