@@ -29,9 +29,9 @@ def lcm_cat(tensors: List[Tensor], batch_first: bool = False) -> Tensor:
         seq_size = t.shape[seq_dim]
         repeat_times = lcm_seq_size // seq_size
         if batch_first:
-            t = t.repeat(1, repeat_times, 1, 1)
+            t = t.repeat(1, int(repeat_times), 1, 1)
         else:
-            t = t.repeat(repeat_times, 1, 1, 1)
+            t = t.repeat(int(repeat_times), 1, 1, 1)
         tensors[i] = t.flatten(start_dim=2)
 
     # Concatenate
