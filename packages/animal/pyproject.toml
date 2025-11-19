@@ -2,7 +2,8 @@
 name = "kitsuyui_ml.animal"
 dynamic = ["version"]
 description = "A playground for publishing packages to PyPI"
-requires-python = ">=3.10"
+# https://scientific-python.org/specs/spec-0000/
+requires-python = ">=3.12"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
     {name = "Yui KITSU", email = "kitsuyui+github@kitsuyui.com"}
