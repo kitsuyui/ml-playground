@@ -18,7 +18,6 @@ I want to organize samples for myself because sample codes for machine learning 
   - Python support table: https://devguide.python.org/versions/
   - numpy support table: https://numpy.org/neps/nep-0029-deprecation_policy.html 
 - [Renovate](https://github.com/apps/renovate) continuously updates dependencies.
-- [Codecov](https://app.codecov.io/gh/kitsuyui/ml-playground) measures test coverage.
 - [nbmake](https://github.com/treebeardtech/nbmake) tests Jupyter ipynb files.
 
 By doing so, I will ensure that sample codes always function as samples.
