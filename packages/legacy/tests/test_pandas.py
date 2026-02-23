@@ -16,7 +16,9 @@ def test_dataframe() -> None:
     assert isinstance(df["a"], pd.Series)
     assert df["a"].dtype == np.int64
     assert df["b"].dtype == np.float64
-    assert df["c"].dtype == np.object_
+    # pandas may infer string columns as either object dtype or StringDtype,
+    # depending on version/configuration.
+    assert df["c"].dtype == np.object_ or pd.api.types.is_string_dtype(df["c"])
 
     # to numpy
     a = df["a"].to_numpy()
