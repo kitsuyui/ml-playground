@@ -4,9 +4,9 @@ coverage:
     - coverage.xml
 codeToTestRatio:
   code:
-    - "**/*.py"
+    - "packages/*/src/**/*.py"
   test:
-    - "tests/**/*.py"
+    - "packages/*/tests/**/*.py"
 testExecutionTime:
   if: true
 diff:

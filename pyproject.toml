@@ -37,5 +37,5 @@ syntax_check = { cmd = "./bin/run-each syntax_check" }
 sync-all = { cmd = "./bin/run-each sync" }
 type_check = { cmd = "./bin/run-each type_check" }
 test = { cmd = "./bin/run-each test" }
-coverage = { cmd = "./bin/run-each coverage" }
+coverage = { shell = "cd \"$(git rev-parse --show-toplevel)\" && rm -f coverage.xml .coverage && ./bin/run-each coverage && uv run python -m coverage combine packages/*/.coverage && uv run python -m coverage xml -o coverage.xml" }
 build = { cmd = "./bin/run-each build" }
