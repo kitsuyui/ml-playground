@@ -1,6 +1,7 @@
 # ml-playground
 
 ![Coverage](https://raw.githubusercontent.com/kitsuyui/octocov-central/main/badges/kitsuyui/ml-playground/coverage.svg)
+[![type: ignore](https://raw.githubusercontent.com/kitsuyui/ml-playground/gh-counter-assets/badges/type-ignore.svg)](https://github.com/kitsuyui/ml-playground/search?q=%22type%3A+ignore%22+path%3Apackages&type=code)
 [
 ![python-v3.10](https://img.shields.io/badge/python-v3.10-blue)
 ![python-v3.11](https://img.shields.io/badge/python-v3.11-blue)
@@ -12,6 +13,7 @@
 
 This is a repository for machine learning playground and sample codes.
 I want to organize samples for myself because sample codes for machine learning are often of low quality.
+The repository tracks Python `# type: ignore` markers with [`gh-counter`](https://github.com/kitsuyui/gh-counter).
 
 - GitHub Actions runs tests for each versions of Python. (Currently 3.10 - 3.12)
   - This range is determined by lifecycle of Python versions and libraries.
