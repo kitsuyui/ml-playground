@@ -1,0 +1,122 @@
+{
+  "id": "type-ignore",
+  "label": "type: ignore",
+  "count": 23,
+  "matches": [
+    {
+      "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/kelly.py",
+      "line": 12,
+      "text": "import sympy  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
+      "line": 11,
+      "text": "import sympy  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
+      "line": 57,
+      "text": "return sympy.symbols(\"f\", real=True, positive=True)  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
+      "line": 65,
+      "text": "return -sympy.Min(*self.gains)  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
+      "line": 81,
+      "text": "return g  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_matplotlib.py",
+      "line": 5,
+      "text": "import matplotlib as mpl  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_matplotlib.py",
+      "line": 6,
+      "text": "import matplotlib.pyplot as plt  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_pytorch_nn.py",
+      "line": 3,
+      "text": "import sympy  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_scipy_sparse.py",
+      "line": 69,
+      "text": "assert (mat_bsr.blocksize == np.array([1, 1])).all()  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_sympy.py",
+      "line": 2,
+      "text": "import sympy  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/categorical_embedding.py",
+      "line": 31,
+      "text": "return y  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/ffn.py",
+      "line": 18,
+      "text": "return self.linear2(ys)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 38,
+      "text": "x = x + self.pe[: x.size(0)].squeeze(1)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 39,
+      "text": "return self.dropout(x)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 41,
+      "text": "x = x + self.pe[: x.size(0)]  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 42,
+      "text": "return self.dropout(x)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 68,
+      "text": "x = x + self.pe[: x.size(0)]  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 69,
+      "text": "return x  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 97,
+      "text": "return self.seq(x)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/scale_embedding.py",
+      "line": 22,
+      "text": "return self.embedding(x.long()) * self.scale  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/scale_embedding.py",
+      "line": 41,
+      "text": "return self.embedding(x.long()) * self.scale  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/token_embedding.py",
+      "line": 28,
+      "text": "return y  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/tests/test_positional_encoding.py",
+      "line": 51,
+      "text": "pe_jit = torch.jit.script(pe)  # type: ignore"
+    }
+  ]
+}

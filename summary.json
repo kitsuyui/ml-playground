@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-03-24T14:36:19.952Z",
+  "repository": "kitsuyui/ml-playground",
+  "default_branch": "main",
+  "publish_branch": "gh-counter-assets",
+  "event_name": "push",
+  "base_reference": null,
+  "head_reference": "b2eed0658291cdcd1eae35b0912c9d23a1cbf43a",
+  "bootstrap_message": null,
+  "counters": [
+    {
+      "id": "type-ignore",
+      "label": "type: ignore",
+      "current": 23,
+      "base": null,
+      "delta": null,
+      "commentable": true,
+      "touched_files": [],
+      "violations": [],
+      "badge_path": ".gh-counter/badges/type-ignore.svg",
+      "counter_path": ".gh-counter/counters/type-ignore.json"
+    }
+  ]
+}
