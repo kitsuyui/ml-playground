@@ -22,6 +22,10 @@ resolution-markers = [
     "python_full_version < '3.13' and platform_machine == 's390x' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 
+[options]
+exclude-newer = "2026-04-02T20:14:07.201749Z"
+exclude-newer-span = "P2D"
+
 [manifest]
 members = [
     "dev-shared",
