@@ -1,0 +1,48 @@
+line-length = 79
+
+[lint]
+select = [
+    "A",
+    "ANN",
+    "ARG",
+    "B",
+    "C4",
+    "C90",
+    "E",
+    "F",
+    "I",
+    "PERF",
+    "PLE",
+    "PTH",
+    "RET",
+    "RUF",
+    "S",
+    "SIM",
+    "SLOT",
+    "UP",
+    "W",
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["A001", "ANN", "D", "E501", "I001", "RUF003", "S101", "S311"]
+"src/**/_version.py" = ["I001", "RUF022", "UP006", "UP007", "UP035"]
+"src/**/test_*.py" = ["S101"]
+"src/kitsuyui_ml/legacy/**/*.py" = [
+    "B905",
+    "E501",
+    "I001",
+    "RET504",
+    "UP006",
+    "UP007",
+    "UP035",
+    "UP047",
+]
+"src/kitsuyui_ml/torch_ext/**/*.py" = [
+    "ANN204",
+    "E501",
+    "RET504",
+    "SIM108",
+    "UP006",
+    "UP007",
+    "UP035",
+]
