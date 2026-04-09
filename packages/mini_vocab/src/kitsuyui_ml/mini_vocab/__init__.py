@@ -8,8 +8,8 @@ spacy Vocab is a good alternative. but not easy to use.
 from __future__ import annotations
 
 import dataclasses
-from typing import Callable, Iterable
 from collections import Counter
+from collections.abc import Callable, Iterable
 
 # https://packaging-guide.openastronomy.org/en/latest/advanced/versioning.html
 from ._version import __version__
@@ -19,7 +19,8 @@ from ._version import __version__
 class Vocab:
     """
     A simple vocabulary class that maps words to indices and vice versa.
-    It is similar to `torchtext.vocab.Vocab` but does not depend on torch and torchtext.
+    It is similar to `torchtext.vocab.Vocab`
+    but does not depend on torch and torchtext.
     """
 
     stoi: dict[str, int] = dataclasses.field(default_factory=dict)
@@ -64,7 +65,8 @@ def build_vocab(
     """
     Build a vocabulary from a list of texts using a tokenizer.
     When `specials` is provided, it will be added to the vocabulary.
-    This is useful for adding special tokens like `<unknown>`, `<pad>`, `<bos>`, `<eos>`.
+    This is useful for adding special tokens like
+    `<unknown>`, `<pad>`, `<bos>`, and `<eos>`.
     """
     counter: Counter[str] = Counter()
     for text in texts:
@@ -77,7 +79,7 @@ def build_vocab(
 
 
 __all__ = [
-    "__version__",
     "Vocab",
+    "__version__",
     "build_vocab",
 ]

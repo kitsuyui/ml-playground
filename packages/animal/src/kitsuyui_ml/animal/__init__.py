@@ -1,6 +1,7 @@
 """A package for animals.
 
-This package provides a simple class `Animal` and a subclass `Dog` to represent animals.
+This package provides a simple `Animal` class
+and a `Dog` subclass to represent animals.
 This package is just for example.
 
 Example:
@@ -19,24 +20,24 @@ from ._version import __version__
 
 
 class Animal:
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         self.name = name
 
     @abc.abstractmethod
-    def speak(self):
+    def speak(self) -> str:
         raise NotImplementedError(
             "Subclass must implement abstract method"
         )  # pragma: no cover
 
 
 class Dog(Animal):
-    def speak(self):
+    def speak(self) -> str:
         return "Bark"
 
 
 __all__ = [
-    "__version__",
     "Animal",
     "Dog",
+    "__version__",
     "example",
 ]

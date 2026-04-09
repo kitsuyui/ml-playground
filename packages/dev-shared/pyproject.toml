@@ -18,6 +18,3 @@ dependencies = [
     "ruff",
     "mypy",
 ]
-
-[tool.ruff]
-line-length = 79

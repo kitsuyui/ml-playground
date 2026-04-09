@@ -15,7 +15,7 @@ def test_kelly() -> None:
     # ・ 200円の損失 … 確率は 35％
     # ・ 250円の損失 … 確率は 10％
     # さて、ソニーに買いシグナルが出た。株価は 4000 円である。ケリー基準に従うとして、何株買うべきか？
-    # from http://geolog.mydns.jp/www.geocities.jp/y_infty/management/criterion_2.html  # noqa
+    # from http://geolog.mydns.jp/www.geocities.jp/y_infty/management/criterion_2.html
     kelly = KellySolver(
         table=[
             (+300, 0.10),
