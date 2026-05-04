@@ -50,6 +50,9 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
 
+      - name: Check generated artifacts
+        run: ./bin/check-generated-artifacts
+
       - name: Install dependencies
         run: |
           uv python pin ${{ matrix.python }}
