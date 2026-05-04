@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly generated_artifact_pattern='(^|/)(__pycache__|\.mypy_cache|\.pytest_cache|\.ruff_cache|[^/]+\.egg-info)(/|$)'
+
+tracked_artifacts="$(git ls-files | grep -E "${generated_artifact_pattern}" || true)"
+
+if [[ -n "${tracked_artifacts}" ]]; then
+  cat <<'EOF' >&2
+Generated Python artifacts are tracked by git.
+Remove these paths from the index and keep the source files as the source of truth:
+EOF
+  printf '%s\n' "${tracked_artifacts}" >&2
+  exit 1
+fi

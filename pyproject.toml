@@ -45,3 +45,4 @@ type_check = { cmd = "./bin/run-each type_check" }
 test = { cmd = "./bin/run-each test" }
 coverage = { shell = "cd \"$(git rev-parse --show-toplevel)\" && rm -f coverage.xml .coverage && ./bin/run-each coverage && uv run python -m coverage combine packages/*/.coverage && uv run python -m coverage xml -o coverage.xml" }
 build = { cmd = "./bin/run-each build" }
+generated_artifact_check = { cmd = "./bin/check-generated-artifacts" }
