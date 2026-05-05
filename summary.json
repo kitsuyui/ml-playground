@@ -1,12 +1,15 @@
 {
-  "generated_at": "2026-05-05T02:15:58.194Z",
+  "generated_at": "2026-05-05T13:13:23.590Z",
   "repository": "kitsuyui/ml-playground",
   "default_branch": "main",
   "publish_branch": "gh-counter-assets",
   "event_name": "push",
-  "base_reference": "868b595c6046fe9dc9180832f987fee13fc41f5d",
-  "head_reference": "abe071a7a2cb8d4bcec9a8d10ff95a41578d48ad",
+  "base_label": "main",
+  "base_reference": "abe071a7a2cb8d4bcec9a8d10ff95a41578d48ad",
+  "head_label": "main",
+  "head_reference": "ea6077bc66b21ab0e6caaf1812620889ce408e07",
   "bootstrap_message": null,
+  "base_only_paths": [],
   "counters": [
     {
       "id": "type-ignore",
@@ -14,8 +17,86 @@
       "current": 23,
       "base": 23,
       "delta": 0,
+      "dashboard_current": 23,
+      "dashboard_base": 23,
+      "dashboard_delta": 0,
       "commentable": true,
       "touched_files": [],
+      "file_deltas": [
+        {
+          "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+          "current": 7,
+          "base": 0,
+          "delta": 7
+        },
+        {
+          "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
+          "current": 4,
+          "base": 0,
+          "delta": 4
+        },
+        {
+          "path": "packages/legacy/tests/test_matplotlib.py",
+          "current": 2,
+          "base": 0,
+          "delta": 2
+        },
+        {
+          "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/scale_embedding.py",
+          "current": 2,
+          "base": 0,
+          "delta": 2
+        },
+        {
+          "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/kelly.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/legacy/tests/test_pytorch_nn.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/legacy/tests/test_scipy_sparse.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/legacy/tests/test_sympy.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/categorical_embedding.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/ffn.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/token_embedding.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/torch_ext/tests/test_positional_encoding.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        }
+      ],
+      "patch_file_deltas": [],
       "violations": [],
       "badge_path": ".gh-counter/badges/type-ignore.svg",
       "counter_path": ".gh-counter/counters/type-ignore.json"
