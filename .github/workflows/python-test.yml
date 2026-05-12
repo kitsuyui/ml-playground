@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   actionlint:
     uses: kitsuyui/gh-actions-workflows/.github/workflows/actionlint.yml@a7071a4635eaece62696cd7132306616ce283c47
