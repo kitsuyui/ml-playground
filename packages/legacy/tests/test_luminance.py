@@ -64,3 +64,8 @@ def test_choose_best_contrast_color() -> None:
 def test_hex_color_to_rgb_invalid_length_raises(invalid_hex: str) -> None:
     with pytest.raises(ValueError, match="Invalid hex color"):
         luminance.hex_color_to_rgb(invalid_hex)
+
+
+def test_choose_best_contrast_color_empty_raises() -> None:
+    with pytest.raises(ValueError, match="empty"):
+        luminance.choose_best_contrast_color("#FFFFFF", [])

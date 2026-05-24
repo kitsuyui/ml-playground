@@ -123,6 +123,8 @@ def choose_best_contrast_color(
     This function is useful for choosing a better monochrome text color for a given background color.
     But this function only works for monochrome colors. It does not work for colors with different hues.
     """
+    if not colors:
+        raise ValueError("colors must not be empty")
     fixed_color_luminance = relative_luminance_from_hex(fixed_color)
     luminances = [relative_luminance_from_hex(color) for color in colors]
     contrast_ratios = [
