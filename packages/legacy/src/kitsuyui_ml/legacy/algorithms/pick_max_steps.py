@@ -43,7 +43,9 @@ def pick_max_steps_v1(items: Items) -> Result:
     items = items[:]
     result = []
     while any(v > 0 for _, v in items):  # m loop
-        items = sorted(items, key=lambda x: x[1], reverse=True)  # n * log(n) loop
+        items = sorted(
+            items, key=lambda x: x[1], reverse=True
+        )  # n * log(n) loop
         key, value = items[0]
         result.append(key)
         items[0] = (key, value - 1)
@@ -75,16 +77,24 @@ def pick_max_steps_v3(items: Items) -> Result:
     O(n + m * log(n))
     Because of heapify in each iteration. Python's heapq.heapify() uses O(n) time.
     After that, heappop() and heappush() use O(log(n)) time.
+
+    Tie-breaking: when multiple items share the same value, the item that appeared
+    earlier in the input list is picked first, matching v1/v2 behavior.
+    The original index is kept in the heap tuple to preserve insertion order.
     """
     result = []
-    heap: list[tuple[float, str]] = [(-v, k) for k, v in items if v > 0]
+    # Include original index as secondary sort key so ties resolve by input order,
+    # matching the stable-sort behavior of v1 and the first-max behavior of v2.
+    heap: list[tuple[float, int, str]] = [
+        (-v, i, k) for i, (k, v) in enumerate(items) if v > 0
+    ]
     heapq.heapify(heap)  # n loop
     while heap:  # m loop
-        max_value, max_key = heapq.heappop(heap)  # log(n) loop
-        max_value = -max_value
+        neg_value, idx, max_key = heapq.heappop(heap)  # log(n) loop
+        max_value = -neg_value
         result.append(max_key)
         max_value -= 1
         if max_value > 0:
-            heapq.heappush(heap, (-max_value, max_key))  # log(n) loop
+            heapq.heappush(heap, (-max_value, idx, max_key))  # log(n) loop
 
     return result
