@@ -8,7 +8,6 @@ spacy Vocab is a good alternative. but not easy to use.
 from __future__ import annotations
 
 import dataclasses
-from collections import Counter
 from collections.abc import Callable, Iterable
 
 # https://packaging-guide.openastronomy.org/en/latest/advanced/versioning.html
@@ -67,14 +66,21 @@ def build_vocab(
     When `specials` is provided, it will be added to the vocabulary.
     This is useful for adding special tokens like
     `<unknown>`, `<pad>`, `<bos>`, and `<eos>`.
+    Vocabulary indices are deterministic: special tokens are inserted first
+    in the provided order, then regular tokens are inserted in first-seen
+    order across `texts`. Token frequency does not affect index assignment.
     """
-    counter: Counter[str] = Counter()
+    words: list[str] = []
+    seen_words: set[str] = set()
     for text in texts:
-        counter.update(tokenizer(text))
+        for word in tokenizer(text):
+            if word not in seen_words:
+                words.append(word)
+                seen_words.add(word)
     if specials is None:
         specials = []
     vocab = Vocab.create(words=specials)
-    vocab.add_words(counter.keys())
+    vocab.add_words(words)
     return vocab
 
 
