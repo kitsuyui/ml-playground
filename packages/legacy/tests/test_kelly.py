@@ -1,8 +1,11 @@
 """ケリー基準の計算のテスト"""
 
-import pytest
+from unittest.mock import MagicMock, patch
 
-from kitsuyui_ml.legacy.kelly.kelly import KellySolver
+import pytest
+import sympy  # type: ignore
+
+from kitsuyui_ml.legacy.kelly.kelly import KellySolver, arg_max_solver
 
 
 def test_kelly() -> None:
@@ -83,3 +86,17 @@ def test_kelly_error() -> None:
         2_000_000,
     )
     assert kelly_float.optimal_fraction == pytest.approx(0.0595, 0.001)
+
+
+def test_arg_max_solver_convergence_failure() -> None:
+    """RuntimeError is raised when scipy.optimize.minimize fails to converge."""
+    failed_result = MagicMock()
+    failed_result.success = False
+    failed_result.message = "Iteration limit exceeded"
+
+    x = sympy.Symbol("x")
+    with (
+        patch("scipy.optimize.minimize", return_value=failed_result),
+        pytest.raises(RuntimeError, match="Optimization failed to converge"),
+    ):
+        arg_max_solver(variable=x, function=x**2)
