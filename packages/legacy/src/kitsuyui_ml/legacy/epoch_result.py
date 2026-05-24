@@ -31,4 +31,4 @@ class EpochResult:
         return self.end_valid - self.begin_train
 
     def is_best_loss(self) -> bool:
-        return self.valid_loss <= self.best_loss
+        return self.valid_loss < self.best_loss
