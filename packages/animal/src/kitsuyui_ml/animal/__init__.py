@@ -9,8 +9,6 @@ Example:
     >>> dog = kitsuyui.animal.Dog("Rex")
     >>> dog.speak()
     'Bark'
-    >>> kitsuyui.animal.example()
-    Bark
 """
 
 import abc
@@ -39,5 +37,4 @@ __all__ = [
     "Animal",
     "Dog",
     "__version__",
-    "example",
 ]
