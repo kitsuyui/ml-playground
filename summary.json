@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-05-24T17:03:03.722Z",
+  "generated_at": "2026-05-24T17:03:23.230Z",
   "repository": "kitsuyui/ml-playground",
   "default_branch": "main",
   "publish_branch": "gh-counter-assets",
   "event_name": "push",
   "base_label": "main",
-  "base_reference": "e96c46e5b9aa3c6a79ff978771eb68e32c2a5e21",
+  "base_reference": "043175f9f545bfbf6f1b08f0b696a865a665f4d5",
   "head_label": "main",
-  "head_reference": "043175f9f545bfbf6f1b08f0b696a865a665f4d5",
+  "head_reference": "e3015986a8e82b130b2bec4c2ec2f663bf55d050",
   "bootstrap_message": null,
   "base_only_paths": [],
   "counters": [
     {
       "id": "type-ignore",
       "label": "type: ignore",
-      "current": 24,
+      "current": 25,
       "base": 24,
-      "delta": 0,
-      "dashboard_current": 24,
+      "delta": 1,
+      "dashboard_current": 25,
       "dashboard_base": 24,
-      "dashboard_delta": 0,
+      "dashboard_delta": 1,
       "commentable": true,
       "touched_files": [],
       "file_deltas": [
@@ -55,6 +55,12 @@
         },
         {
           "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/kelly.py",
+          "current": 1,
+          "base": 0,
+          "delta": 1
+        },
+        {
+          "path": "packages/legacy/tests/test_pick_max_steps.py",
           "current": 1,
           "base": 0,
           "delta": 1
