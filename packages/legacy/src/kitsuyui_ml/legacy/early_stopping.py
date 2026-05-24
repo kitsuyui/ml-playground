@@ -31,12 +31,12 @@ class EarlyStopping:
             raise ValueError("Infinite loss: possible gradient explosion")
 
     def is_best_loss(self, loss: float) -> bool:
-        """Check if loss is better than current best loss."""
+        """Return True only when loss is strictly better than the current best."""
         self._validate_loss(loss)
         return self._is_best_loss_unchecked(loss)
 
     def _is_best_loss_unchecked(self, loss: float) -> bool:
-        return loss <= self._best_loss
+        return loss < self._best_loss
 
     def step(self, loss: float) -> None:
         """Update early stopping state."""
