@@ -46,6 +46,11 @@ class FenwickTree:
             i += i & -i
 
 
+def _ensure_distinct(values: List[T], name: str) -> None:
+    if len(set(values)) != len(values):
+        raise ValueError(f"{name} must contain distinct values")
+
+
 def permutation_rank(a: List[T], items: List[T]) -> int:
     """
     Compute the 0-based rank of the partial permutation a (length m) among
@@ -64,8 +69,15 @@ def permutation_rank(a: List[T], items: List[T]) -> int:
     """
     n = len(items)
     m = len(a)
+    if m > n:
+        raise ValueError("a must not be longer than items")
+    _ensure_distinct(items, "items")
+    _ensure_distinct(a, "a")
+
     # Map each item to its index in the sorted items list
     index_map = {item: i for i, item in enumerate(items)}
+    if any(ai not in index_map for ai in a):
+        raise ValueError("a must only contain values from items")
 
     fact = math.factorial
     denom = fact(n - m)

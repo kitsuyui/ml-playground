@@ -1,3 +1,5 @@
+import pytest
+
 from kitsuyui_ml.legacy.algorithms.pick_max_steps import (
     pick_max_steps_v1,
     pick_max_steps_v2,
@@ -84,3 +86,14 @@ def test_pick_sequence_v3() -> None:
     ]
     sequence = pick_max_steps_v3(items)
     assert sequence == tobe
+
+
+@pytest.mark.parametrize(
+    "fn",
+    [pick_max_steps_v1, pick_max_steps_v2, pick_max_steps_v3],
+)
+def test_tiebreak_preserves_input_order(fn):  # type: ignore[no-untyped-def]
+    """All three implementations must pick earlier-input item first on equal values."""
+    items = [("B", 1.0), ("A", 1.0)]
+    result = fn(items)
+    assert result == ["B", "A"], f"{fn.__name__} tiebreak differs: {result}"

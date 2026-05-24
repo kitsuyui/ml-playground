@@ -138,5 +138,9 @@ def arg_max_solver(*, variable: sympy.Expr, function: sympy.Expr) -> float:
         -function,  # inversed maximize is minimize
         "scipy",
     )
-    arg_max_values = scipy.optimize.minimize(function_in_scipy, 0).x
-    return float(arg_max_values[0])  # scipy -> float
+    result = scipy.optimize.minimize(function_in_scipy, 0)
+    if not result.success:
+        raise RuntimeError(
+            f"Optimization failed to converge: {result.message}"
+        )
+    return float(result.x[0])  # scipy -> float

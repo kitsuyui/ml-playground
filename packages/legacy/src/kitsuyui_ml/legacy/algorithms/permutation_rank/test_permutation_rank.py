@@ -1,3 +1,5 @@
+import pytest
+
 from .permutation_rank import permutation_rank
 
 
@@ -59,3 +61,19 @@ def test_permutation_rank() -> None:
 
     items2 = list(range(18))
     assert permutation_rank([0, 1, 2], items2) == 0
+
+
+@pytest.mark.parametrize(
+    ("a", "items", "match"),
+    [
+        (["A", "B"], ["A"], "longer than items"),
+        (["A"], ["A", "A"], "items must contain distinct values"),
+        (["A", "A"], ["A", "B"], "a must contain distinct values"),
+        (["C"], ["A", "B"], "values from items"),
+    ],
+)
+def test_permutation_rank_rejects_invalid_inputs(
+    a: list[str], items: list[str], match: str
+) -> None:
+    with pytest.raises(ValueError, match=match):
+        permutation_rank(a, items)

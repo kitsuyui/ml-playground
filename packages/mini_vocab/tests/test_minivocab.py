@@ -66,3 +66,23 @@ def test_build_vocab() -> None:
     assert vocab_no_specials.itos[3] == "of"
     assert vocab_no_specials.stoi["python"] == 4
     assert vocab_no_specials.itos[4] == "python"
+
+
+def test_build_vocab_uses_first_seen_order_not_frequency() -> None:
+    """
+    Test that build_vocab assigns indices by first-seen token order.
+    """
+    texts = [
+        "rare common common",
+        "common later",
+    ]
+
+    def simple_tokenizer(text: str) -> list[str]:
+        return text.split()
+
+    vocab = build_vocab(texts, simple_tokenizer, specials=["<pad>"])
+
+    assert vocab.stoi["<pad>"] == 0
+    assert vocab.stoi["rare"] == 1
+    assert vocab.stoi["common"] == 2
+    assert vocab.stoi["later"] == 3

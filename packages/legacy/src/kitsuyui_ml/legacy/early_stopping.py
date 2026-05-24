@@ -11,10 +11,9 @@ class EarlyStopping:
     best_loss: float = float("inf")
 
     def __call__(self, loss: float) -> bool:
-        self._validate_loss(loss)
-        is_best_loss = self._is_best_loss_unchecked(loss)
-        self._step_unchecked(loss)
-        return is_best_loss
+        """Return True when training should stop (i.e. patience is exhausted)."""
+        self.step(loss)
+        return self.is_stopped()
 
     @staticmethod
     def _validate_loss(loss: float) -> None:
