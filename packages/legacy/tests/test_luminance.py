@@ -1,3 +1,5 @@
+import pytest
+
 import kitsuyui_ml.legacy.algorithms.luminance as luminance
 
 
@@ -43,4 +45,22 @@ def test_choose_best_contrast_color() -> None:
         luminance.choose_best_contrast_color("#CCCCCC", ["#111111", "#EEEEEE"])
         == "#111111"
     )
-    assert luminance.choose_best_contrast_color("#000", ["#000", "#FFF"]) == "#FFF"
+    assert (
+        luminance.choose_best_contrast_color("#000", ["#000", "#FFF"])
+        == "#FFF"
+    )
+
+
+@pytest.mark.parametrize(
+    "invalid_hex",
+    [
+        "",
+        "#",
+        "#12345",
+        "#1234567",
+        "\uff03FFFFFF",
+    ],
+)
+def test_hex_color_to_rgb_invalid_length_raises(invalid_hex: str) -> None:
+    with pytest.raises(ValueError, match="Invalid hex color"):
+        luminance.hex_color_to_rgb(invalid_hex)

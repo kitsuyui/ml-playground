@@ -58,10 +58,14 @@ def relative_luminance_from_hex(hex_color: str) -> float:
 
 def hex_color_to_rgb(hex_color: str) -> tuple[Uint8, Uint8, Uint8]:
     """Convert a hex color string to an RGB tuple."""
-    hex_color = hex_color.lstrip("#")
-    if len(hex_color) == 3:
-        hex_color = "".join(2 * s for s in hex_color)
-    r_hex, g_hex, b_hex = hex_color[:2], hex_color[2:4], hex_color[4:]
+    stripped = hex_color.lstrip("#")
+    if len(stripped) == 3:
+        stripped = "".join(2 * s for s in stripped)
+    if len(stripped) != 6:
+        raise ValueError(
+            f"Invalid hex color: {hex_color!r}. Expected '#RGB' or '#RRGGBB'."
+        )
+    r_hex, g_hex, b_hex = stripped[:2], stripped[2:4], stripped[4:]
     r, g, b = int(r_hex, 16), int(g_hex, 16), int(b_hex, 16)
     return r, g, b
 
@@ -122,7 +126,8 @@ def choose_best_contrast_color(
     fixed_color_luminance = relative_luminance_from_hex(fixed_color)
     luminances = [relative_luminance_from_hex(color) for color in colors]
     contrast_ratios = [
-        contrast_ratio(fixed_color_luminance, luminance) for luminance in luminances
+        contrast_ratio(fixed_color_luminance, luminance)
+        for luminance in luminances
     ]
     max_contrast_ratio = max(contrast_ratios)
     max_contrast_ratio_index = contrast_ratios.index(max_contrast_ratio)
