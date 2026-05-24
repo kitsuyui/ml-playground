@@ -16,7 +16,7 @@ class ScaleEmbedding(nn.Module):
             num_embeddings=num_embeddings,
             embedding_dim=embedding_dim,
         )
-        self.scale = torch.sqrt(torch.tensor(embedding_dim, requires_grad=False))
+        self.register_buffer("scale", torch.sqrt(torch.tensor(embedding_dim)))
 
     def forward(self, x: Tensor) -> Tensor:
         return self.embedding(x.long()) * self.scale  # type: ignore
