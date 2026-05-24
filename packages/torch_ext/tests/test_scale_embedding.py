@@ -1,6 +1,9 @@
 import torch
 
-from kitsuyui_ml.torch_ext.scale_embedding import ScaleEmbedding, ScaleEmbedding2
+from kitsuyui_ml.torch_ext.scale_embedding import (
+    ScaleEmbedding,
+    ScaleEmbedding2,
+)
 
 
 def test_scale_embedding() -> None:
@@ -14,6 +17,10 @@ def test_scale_embedding() -> None:
     se = ScaleEmbedding(num_embeddings, embedding_dim)
     y = se(x)
     assert y.shape == (input_dim, embedding_dim)
+    assert "scale" in se.state_dict()
+
+    se = se.to(dtype=torch.float64)
+    assert se.scale.dtype == torch.float64
 
     # Test 2
     se2 = ScaleEmbedding2(num_embeddings, embedding_dim)
