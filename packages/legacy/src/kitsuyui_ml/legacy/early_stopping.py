@@ -1,3 +1,4 @@
+import math
 from dataclasses import dataclass
 
 
@@ -20,6 +21,8 @@ class EarlyStopping:
 
     def step(self, loss: float) -> None:
         """Update early stopping state."""
+        if math.isnan(loss):
+            raise ValueError("NaN loss: possible gradient explosion")
         if self.is_best_loss(loss):
             self.best_loss = loss
             self.count = 0
