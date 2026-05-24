@@ -3,6 +3,7 @@
 ja: ケリー基準
 en: Kelly criterion"""
 
+import math
 from dataclasses import dataclass, field
 from functools import cached_property
 from typing import Dict, List, Tuple
@@ -30,7 +31,9 @@ class KellySolver:
     _sympy: SympyKelly = field(init=False)
 
     def __post_init__(self) -> None:
-        if sum(self.probabilities) != 1.0:
+        if not self.table:
+            raise ValueError("table must not be empty")
+        if not math.isclose(sum(self.probabilities), 1.0):
             raise ValueError("sum of probabilities must be 1.0")
         if min(self.gains) > 0:
             raise ValueError("all positive gains are meaningless")

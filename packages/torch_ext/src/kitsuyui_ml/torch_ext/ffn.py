@@ -15,6 +15,7 @@ class PositionWiseFeedForwardNetwork(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         ys = self.linear1(x)
         ys = F.relu(ys)
+        ys = self.dropout(ys)
         return self.linear2(ys)  # type: ignore
 
 
