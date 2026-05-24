@@ -31,8 +31,8 @@ PositionalEncoding(
         == """\
 PositionalEncoding2(
   (seq): Sequential(
-    (dropout): Dropout(p=0.0, inplace=False)
     (pe): RawPositionalEncoding()
+    (dropout): Dropout(p=0.0, inplace=False)
   )
 )"""
     )
@@ -43,6 +43,16 @@ PositionalEncoding2(
     y2 = pe2(x)
     # same result
     assert torch.allclose(y, y2, rtol=0.0, atol=0.0)
+
+
+def test_positional_encoding2_drops_positional_signal() -> None:
+    x = torch.ones(3, 2, 4)
+    pe = PositionalEncoding(d_model=4, dropout=1.0)
+    pe2 = PositionalEncoding2(d_model=4, dropout=1.0)
+
+    expected = torch.zeros_like(x)
+    assert torch.equal(pe(x), expected)
+    assert torch.equal(pe2(x), expected)
 
 
 def test_torch_jit_ready() -> None:

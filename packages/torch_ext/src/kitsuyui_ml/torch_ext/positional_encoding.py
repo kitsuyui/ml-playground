@@ -80,11 +80,11 @@ class PositionalEncoding2(nn.Module):
         self.seq = nn.Sequential(
             OrderedDict(
                 [
-                    ("dropout", nn.Dropout(p=dropout)),
                     (
                         "pe",
                         RawPositionalEncoding(d_model, max_len),
                     ),
+                    ("dropout", nn.Dropout(p=dropout)),
                 ]
             )
         )
