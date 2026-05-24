@@ -27,12 +27,18 @@ def test_kelly() -> None:
         assets=2_000_000,
     )
 
-    assert kelly.optimal_fraction == pytest.approx(0.0595, 0.001), "Optimal f ≒ 0.0595"
+    assert kelly.optimal_fraction == pytest.approx(0.0595, 0.001), (
+        "Optimal f ≒ 0.0595"
+    )
     assert kelly.optimal_bets == pytest.approx(119_075, 0.1), (
         "119,075 円まで買うのが正解"
     )
-    assert kelly.optimal_bet_units == pytest.approx(476, 0.1), "476 株買うのが正解"
-    assert kelly.optimal_growth == pytest.approx(1.00119, 1e-5), "0.119% の複利で増える"
+    assert kelly.optimal_bet_units == pytest.approx(476, 0.1), (
+        "476 株買うのが正解"
+    )
+    assert kelly.optimal_growth == pytest.approx(1.00119, 1e-5), (
+        "0.119% の複利で増える"
+    )
 
 
 def test_kelly_error() -> None:
@@ -60,3 +66,20 @@ def test_kelly_error() -> None:
             10000.0,
         )
     assert str(error.value) == "sum of probabilities must be 1.0"
+
+    # Empty table raises ValueError
+    with pytest.raises(ValueError, match="empty"):
+        KellySolver([], 10000.0)
+
+    # Floating-point probabilities summing to 1.0 within tolerance are accepted
+    kelly_float = KellySolver(
+        [
+            (+300, 0.10),
+            (+200, 0.15),
+            (+150, 0.30),
+            (-200, 0.35),
+            (-250, 0.10),
+        ],
+        2_000_000,
+    )
+    assert kelly_float.optimal_fraction == pytest.approx(0.0595, 0.001)
