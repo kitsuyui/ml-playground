@@ -11,9 +11,9 @@ class EarlyStopping:
     best_loss: float = float("inf")
 
     def __call__(self, loss: float) -> bool:
-        is_best_loss = self.is_best_loss(loss)
+        """Return True when training should stop (i.e. patience is exhausted)."""
         self.step(loss)
-        return is_best_loss
+        return self.is_stopped()
 
     def is_best_loss(self, loss: float) -> bool:
         """Check if loss is better than current best loss."""
