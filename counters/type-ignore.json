@@ -1,7 +1,7 @@
 {
   "id": "type-ignore",
   "label": "type: ignore",
-  "count": 25,
+  "count": 26,
   "matches": [
     {
       "path": "packages/animal/tests/test_basis.py",
@@ -32,6 +32,11 @@
       "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/sympy_kelly.py",
       "line": 81,
       "text": "return g  # type: ignore"
+    },
+    {
+      "path": "packages/legacy/tests/test_kelly.py",
+      "line": 6,
+      "text": "import sympy  # type: ignore"
     },
     {
       "path": "packages/legacy/tests/test_matplotlib.py",
