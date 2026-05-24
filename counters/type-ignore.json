@@ -5,7 +5,7 @@
   "matches": [
     {
       "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/kelly.py",
-      "line": 12,
+      "line": 13,
       "text": "import sympy  # type: ignore"
     },
     {
@@ -60,7 +60,7 @@
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/ffn.py",
-      "line": 18,
+      "line": 19,
       "text": "return self.linear2(ys)  # type: ignore"
     },
     {
