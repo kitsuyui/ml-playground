@@ -1,8 +1,13 @@
 {
   "id": "type-ignore",
   "label": "type: ignore",
-  "count": 23,
+  "count": 24,
   "matches": [
+    {
+      "path": "packages/animal/tests/test_basis.py",
+      "line": 14,
+      "text": "Animal(\"test\")  # type: ignore[abstract]"
+    },
     {
       "path": "packages/legacy/src/kitsuyui_ml/legacy/kelly/kelly.py",
       "line": 13,
