@@ -13,8 +13,8 @@ class NumericalEmbedding(nn.Module):
 
     def __init__(
         self,
-        embedding_dim: int,
         num_values: int,
+        embedding_dim: int,
         dropout: float,
     ) -> None:
         super().__init__()

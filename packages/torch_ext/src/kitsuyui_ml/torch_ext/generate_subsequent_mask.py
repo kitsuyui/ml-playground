@@ -30,9 +30,13 @@ def generate_square_subsequent_mask_1(
         torch.Tensor: A square mask of shape (size, size) with the upper triangular part masked out.
     The mask is filled with 0.0 for valid positions and -inf for masked positions
     """
-    mask = (torch.triu(torch.ones((size, size), device=device)) == 1).transpose(0, 1)
     mask = (
-        mask.float().masked_fill(mask == 0, float("-inf")).masked_fill(mask == 1, 0.0)
+        torch.triu(torch.ones((size, size), device=device)) == 1
+    ).transpose(0, 1)
+    mask = (
+        mask.float()
+        .masked_fill(mask == 0, float("-inf"))
+        .masked_fill(mask == 1, 0.0)
     )
     return mask
 
@@ -49,5 +53,7 @@ def generate_square_subsequent_mask_2(
         torch.Tensor: A square mask of shape (size, size) with the upper triangular part masked out.
     The mask is filled with 0.0 for valid positions and -inf for masked positions
     """
-    mask = torch.nn.Transformer.generate_square_subsequent_mask(size, device=device)
+    mask = torch.nn.Transformer.generate_square_subsequent_mask(
+        size, device=device
+    )
     return mask
