@@ -4,12 +4,22 @@ import torch
 from torch import Tensor
 
 
-def lcm_cat(tensors: List[Tensor], batch_first: bool = False) -> Tensor:
+def lcm_cat(
+    tensors: List[Tensor],
+    batch_first: bool = False,
+    max_sequence_length: int = 4096,
+) -> Tensor:
     """lcm_cat
 
     Concatenate tensors after expanding the sequence length to the
     least common multiple of the sequence lengths in the batch.
+
+    Raises ValueError before expansion when the LCM sequence length
+    exceeds max_sequence_length.
     """
+    if max_sequence_length < 1:
+        raise ValueError("max_sequence_length must be positive")
+
     if batch_first:
         seq_dim = 1
     else:
@@ -22,6 +32,10 @@ def lcm_cat(tensors: List[Tensor], batch_first: bool = False) -> Tensor:
     for t in tensors:
         t_seq_size = torch.tensor(t.shape[seq_dim])
         torch.lcm(lcm_seq_size, t_seq_size, out=lcm_seq_size)
+        if int(lcm_seq_size) > max_sequence_length:
+            raise ValueError(
+                "lcm_cat sequence length exceeds max_sequence_length"
+            )
 
     # Repeat tensors to match the LCM
     for i, t in enumerate(tensors):
