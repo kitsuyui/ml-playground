@@ -1,6 +1,7 @@
 import pytest
 
 from kitsuyui_ml.legacy.algorithms.pick_max_steps import (
+    DEFAULT_MAX_RESULT_LENGTH,
     pick_max_steps_v1,
     pick_max_steps_v2,
     pick_max_steps_v3,
@@ -97,3 +98,30 @@ def test_tiebreak_preserves_input_order(fn):  # type: ignore[no-untyped-def]
     items = [("B", 1.0), ("A", 1.0)]
     result = fn(items)
     assert result == ["B", "A"], f"{fn.__name__} tiebreak differs: {result}"
+
+
+@pytest.mark.parametrize(
+    "fn",
+    [pick_max_steps_v1, pick_max_steps_v2, pick_max_steps_v3],
+)
+def test_rejects_results_over_default_limit(fn):  # type: ignore[no-untyped-def]
+    with pytest.raises(ValueError, match="more than"):
+        fn([("A", DEFAULT_MAX_RESULT_LENGTH + 1.0)])
+
+
+@pytest.mark.parametrize(
+    "fn",
+    [pick_max_steps_v1, pick_max_steps_v2, pick_max_steps_v3],
+)
+def test_rejects_results_over_custom_limit(fn):  # type: ignore[no-untyped-def]
+    with pytest.raises(ValueError, match="more than"):
+        fn([("A", 3.1)], max_result_length=3)
+
+
+@pytest.mark.parametrize(
+    "fn",
+    [pick_max_steps_v1, pick_max_steps_v2, pick_max_steps_v3],
+)
+def test_rejects_infinite_positive_values(fn):  # type: ignore[no-untyped-def]
+    with pytest.raises(ValueError, match="finite"):
+        fn([("A", float("inf"))])
