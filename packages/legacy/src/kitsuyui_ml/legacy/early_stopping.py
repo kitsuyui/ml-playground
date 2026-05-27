@@ -1,5 +1,5 @@
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -7,8 +7,16 @@ class EarlyStopping:
     """Early stopping class to stop training when loss is not improving."""
 
     patience: int
-    count: int = 0
-    best_loss: float = float("inf")
+    _count: int = field(default=0, init=False, repr=False)
+    _best_loss: float = field(default=float("inf"), init=False, repr=False)
+
+    @property
+    def count(self) -> int:
+        return self._count
+
+    @property
+    def best_loss(self) -> float:
+        return self._best_loss
 
     def __call__(self, loss: float) -> bool:
         """Return True when training should stop (i.e. patience is exhausted)."""
@@ -28,7 +36,7 @@ class EarlyStopping:
         return self._is_best_loss_unchecked(loss)
 
     def _is_best_loss_unchecked(self, loss: float) -> bool:
-        return loss <= self.best_loss
+        return loss <= self._best_loss
 
     def step(self, loss: float) -> None:
         """Update early stopping state."""
@@ -37,11 +45,11 @@ class EarlyStopping:
 
     def _step_unchecked(self, loss: float) -> None:
         if self._is_best_loss_unchecked(loss):
-            self.best_loss = loss
-            self.count = 0
+            self._best_loss = loss
+            self._count = 0
         else:
-            self.count += 1
+            self._count += 1
 
     def is_stopped(self) -> bool:
         """Check if early stopping is triggered."""
-        return self.count >= self.patience
+        return self._count >= self.patience
