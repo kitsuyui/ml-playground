@@ -25,21 +25,54 @@ The result will be A, B, A, C, B, A, C, B, A, D, C, B, A, D
 """
 
 import heapq
+import math
 
 
 Items = list[tuple[str, float]]
 Result = list[str]
+DEFAULT_MAX_RESULT_LENGTH = 100_000
 
 
-def pick_max_steps_v1(items: Items) -> Result:
+def _validate_result_length(
+    items: Items,
+    max_result_length: int,
+) -> None:
+    if max_result_length < 0:
+        msg = "max_result_length must be greater than or equal to 0"
+        raise ValueError(msg)
+
+    result_length = 0
+    for _, value in items:
+        if not value > 0:
+            continue
+        if not math.isfinite(value):
+            msg = "pick_max_steps values must be finite"
+            raise ValueError(msg)
+
+        result_length += math.ceil(value)
+        if result_length > max_result_length:
+            msg = (
+                "pick_max_steps would produce more than "
+                f"{max_result_length} results"
+            )
+            raise ValueError(msg)
+
+
+def pick_max_steps_v1(
+    items: Items,
+    *,
+    max_result_length: int = DEFAULT_MAX_RESULT_LENGTH,
+) -> Result:
     """Most simple way to pick maximum value from given items.
 
     n is the number of items.
     m is the maximum value of items.
+    max_result_length limits the number of keys returned.
 
     O(m * n * log(n))
     Because of sorting in each iteration. Python's sort() and sorted() use Timsort algorithm. O(n * log(n))
     """
+    _validate_result_length(items, max_result_length)
     items = items[:]
     result = []
     while any(v > 0 for _, v in items):  # m loop
@@ -52,14 +85,20 @@ def pick_max_steps_v1(items: Items) -> Result:
     return result
 
 
-def pick_max_steps_v2(items: Items) -> Result:
+def pick_max_steps_v2(
+    items: Items,
+    *,
+    max_result_length: int = DEFAULT_MAX_RESULT_LENGTH,
+) -> Result:
     """Optimized way to pick maximum value from given items.
 
     n is the number of items.
     m is the maximum value of items.
+    max_result_length limits the number of keys returned.
 
     O(m * n)
     """
+    _validate_result_length(items, max_result_length)
     result = []
     while any(v > 0 for _, v in items):  # m loop
         max_key = max(items, key=lambda x: x[1])[0]  # n loop
@@ -68,11 +107,16 @@ def pick_max_steps_v2(items: Items) -> Result:
     return result
 
 
-def pick_max_steps_v3(items: Items) -> Result:
+def pick_max_steps_v3(
+    items: Items,
+    *,
+    max_result_length: int = DEFAULT_MAX_RESULT_LENGTH,
+) -> Result:
     """Optimized way to pick maximum value from given items.
 
     n is the number of items.
     m is the maximum value of items.
+    max_result_length limits the number of keys returned.
 
     O(n + m * log(n))
     Because of heapify in each iteration. Python's heapq.heapify() uses O(n) time.
@@ -82,6 +126,7 @@ def pick_max_steps_v3(items: Items) -> Result:
     earlier in the input list is picked first, matching v1/v2 behavior.
     The original index is kept in the heap tuple to preserve insertion order.
     """
+    _validate_result_length(items, max_result_length)
     result = []
     # Include original index as secondary sort key so ties resolve by input order,
     # matching the stable-sort behavior of v1 and the first-max behavior of v2.
