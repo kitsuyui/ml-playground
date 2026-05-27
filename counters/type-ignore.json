@@ -1,7 +1,7 @@
 {
   "id": "type-ignore",
   "label": "type: ignore",
-  "count": 26,
+  "count": 29,
   "matches": [
     {
       "path": "packages/animal/tests/test_basis.py",
@@ -50,8 +50,23 @@
     },
     {
       "path": "packages/legacy/tests/test_pick_max_steps.py",
-      "line": 95,
+      "line": 96,
       "text": "def test_tiebreak_preserves_input_order(fn):  # type: ignore[no-untyped-def]"
+    },
+    {
+      "path": "packages/legacy/tests/test_pick_max_steps.py",
+      "line": 107,
+      "text": "def test_rejects_results_over_default_limit(fn):  # type: ignore[no-untyped-def]"
+    },
+    {
+      "path": "packages/legacy/tests/test_pick_max_steps.py",
+      "line": 116,
+      "text": "def test_rejects_results_over_custom_limit(fn):  # type: ignore[no-untyped-def]"
+    },
+    {
+      "path": "packages/legacy/tests/test_pick_max_steps.py",
+      "line": 125,
+      "text": "def test_rejects_infinite_positive_values(fn):  # type: ignore[no-untyped-def]"
     },
     {
       "path": "packages/legacy/tests/test_pytorch_nn.py",
