@@ -5,8 +5,8 @@ and a `Dog` subclass to represent animals.
 This package is just for example.
 
 Example:
-    >>> import kitsuyui.animal
-    >>> dog = kitsuyui.animal.Dog("Rex")
+    >>> import kitsuyui_ml.animal
+    >>> dog = kitsuyui_ml.animal.Dog("Rex")
     >>> dog.speak()
     'Bark'
 """
