@@ -7,14 +7,13 @@ spacy Vocab is a good alternative. but not easy to use.
 
 from __future__ import annotations
 
-import dataclasses
 from collections.abc import Callable, Iterable
+from types import MappingProxyType
 
 # https://packaging-guide.openastronomy.org/en/latest/advanced/versioning.html
 from ._version import __version__
 
 
-@dataclasses.dataclass
 class Vocab:
     """
     A simple vocabulary class that maps words to indices and vice versa.
@@ -22,18 +21,33 @@ class Vocab:
     but does not depend on torch and torchtext.
     """
 
-    stoi: dict[str, int] = dataclasses.field(default_factory=dict)
-    itos: dict[int, str] = dataclasses.field(default_factory=dict)
-    current_index: int = 0
+    __slots__ = ("_current_index", "_itos", "_stoi")
+
+    def __init__(self) -> None:
+        self._stoi: dict[str, int] = {}
+        self._itos: dict[int, str] = {}
+        self._current_index: int = 0
+
+    @property
+    def stoi(self) -> MappingProxyType[str, int]:
+        return MappingProxyType(self._stoi)
+
+    @property
+    def itos(self) -> MappingProxyType[int, str]:
+        return MappingProxyType(self._itos)
+
+    @property
+    def current_index(self) -> int:
+        return self._current_index
 
     def add_word(self, word: str) -> None:
         """
         Add a single word to the vocabulary.
         """
-        if word not in self.stoi:
-            self.stoi[word] = self.current_index
-            self.itos[self.current_index] = word
-            self.current_index += 1
+        if word not in self._stoi:
+            self._stoi[word] = self._current_index
+            self._itos[self._current_index] = word
+            self._current_index += 1
 
     def add_words(self, words: Iterable[str]) -> None:
         """
@@ -43,7 +57,7 @@ class Vocab:
             self.add_word(word)
 
     def __len__(self) -> int:
-        return len(self.stoi)
+        return len(self._stoi)
 
     @classmethod
     def create(cls, words: Iterable[str]) -> Vocab:
