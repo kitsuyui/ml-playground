@@ -6,9 +6,17 @@ shift
 
 # Use xargs instead find -exec to pass exit status.
 
+# shellcheck disable=SC2016
 find packages \
 -type d \
 -not -path 'packages/dev-shared' \
 -maxdepth 1 \
 -mindepth 1 \
-| xargs -P 1 -n 1 -I {} sh -c "cd '{}' && uv run poe $subcommand"
+-print0 \
+| xargs -0 -P 1 -I {} sh -c '
+package_dir=$1
+shift
+
+cd "$package_dir"
+uv run poe "$@"
+' sh {} "$subcommand" "$@"
