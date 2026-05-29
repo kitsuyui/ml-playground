@@ -1,7 +1,7 @@
 [project]
 name = "kitsuyui_ml.legacy"
 dynamic = ["version"]
-description = "A playground for publishing packages to PyPI"
+description = "Legacy playground examples retained until each module is migrated or removed"
 # https://scientific-python.org/specs/spec-0000/
 requires-python = ">=3.12"
 readme = { file = "README.md", content-type = "text/markdown" }
@@ -38,7 +38,8 @@ dependencies = [
     "graphviz",
 ]
 [project.urls]
-Homepage = "https://github.com/kitsuyui/pypi-playground"
+Homepage = "https://github.com/kitsuyui/ml-playground/tree/main/packages/legacy"
+Repository = "https://github.com/kitsuyui/ml-playground"
 
 [build-system]
 requires = ["setuptools", "setuptools_scm"]
