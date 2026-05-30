@@ -63,7 +63,15 @@ def pick_max_steps_v1(
     *,
     max_result_length: int = DEFAULT_MAX_RESULT_LENGTH,
 ) -> Result:
-    """Most simple way to pick maximum value from given items.
+    """Reference implementation using full sort per iteration.
+
+    Retained for educational comparison only. Prefer pick_max_steps_v3 for
+    production use.
+
+    Tie-breaking note: when items that start distinct become equal mid-run, this
+    implementation picks whichever item is first in the *current* sorted list,
+    which drifts from original input order. v2 and v3 always resolve ties by
+    original input order, so they can diverge from this implementation.
 
     n is the number of items.
     m is the maximum value of items.
@@ -90,7 +98,10 @@ def pick_max_steps_v2(
     *,
     max_result_length: int = DEFAULT_MAX_RESULT_LENGTH,
 ) -> Result:
-    """Optimized way to pick maximum value from given items.
+    """Reference implementation using linear scan per iteration.
+
+    Retained for educational comparison only. Prefer pick_max_steps_v3 for
+    production use.
 
     n is the number of items.
     m is the maximum value of items.
