@@ -1,7 +1,7 @@
 {
   "id": "type-ignore",
   "label": "type: ignore",
-  "count": 29,
+  "count": 30,
   "matches": [
     {
       "path": "packages/animal/tests/test_basis.py",
@@ -67,6 +67,11 @@
       "path": "packages/legacy/tests/test_pick_max_steps.py",
       "line": 125,
       "text": "def test_rejects_infinite_positive_values(fn):  # type: ignore[no-untyped-def]"
+    },
+    {
+      "path": "packages/legacy/tests/test_pick_max_steps.py",
+      "line": 138,
+      "text": "def test_all_versions_produce_identical_output(items):  # type: ignore[no-untyped-def]"
     },
     {
       "path": "packages/legacy/tests/test_pytorch_nn.py",
