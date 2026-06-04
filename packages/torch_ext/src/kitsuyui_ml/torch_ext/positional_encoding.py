@@ -1,4 +1,5 @@
 import math
+import warnings
 from typing import OrderedDict
 
 import torch
@@ -43,7 +44,10 @@ class PositionalEncoding(nn.Module):
 
 
 class RawPositionalEncoding(nn.Module):
-    """PositionalEncoding without the dropout layer."""
+    """PositionalEncoding without the dropout layer.
+
+    Internal building block used by PositionalEncoding2.
+    """
 
     def __init__(
         self,
@@ -70,12 +74,23 @@ class RawPositionalEncoding(nn.Module):
 
 
 class PositionalEncoding2(nn.Module):
+    """Deprecated. Use PositionalEncoding instead.
+
+    PositionalEncoding2 is equivalent to PositionalEncoding and will be removed in a future version.
+    """
+
     def __init__(
         self,
         d_model: int,
         dropout: float = 0.1,
         max_len: int = 5000,
     ):
+        warnings.warn(
+            "PositionalEncoding2 is deprecated and equivalent to PositionalEncoding. "
+            "Use PositionalEncoding instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         super().__init__()
         self.seq = nn.Sequential(
             OrderedDict(

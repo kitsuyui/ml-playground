@@ -1,3 +1,4 @@
+import pytest
 import torch
 
 from kitsuyui_ml.torch_ext.positional_encoding import (
@@ -25,7 +26,10 @@ PositionalEncoding(
   (dropout): Dropout(p=0.0, inplace=False)
 )"""
     )
-    pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
+    with pytest.warns(
+        DeprecationWarning, match="PositionalEncoding2 is deprecated"
+    ):
+        pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
     assert (
         repr(pe2)
         == """\
@@ -48,7 +52,10 @@ PositionalEncoding2(
 def test_positional_encoding2_drops_positional_signal() -> None:
     x = torch.ones(3, 2, 4)
     pe = PositionalEncoding(d_model=4, dropout=1.0)
-    pe2 = PositionalEncoding2(d_model=4, dropout=1.0)
+    with pytest.warns(
+        DeprecationWarning, match="PositionalEncoding2 is deprecated"
+    ):
+        pe2 = PositionalEncoding2(d_model=4, dropout=1.0)
 
     expected = torch.zeros_like(x)
     assert torch.equal(pe(x), expected)
@@ -66,7 +73,10 @@ def test_torch_jit_ready() -> None:
     assert y.shape == (4, 1, 4)
     assert pe_jit.code is not None
 
-    pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
+    with pytest.warns(
+        DeprecationWarning, match="PositionalEncoding2 is deprecated"
+    ):
+        pe2 = PositionalEncoding2(d_model=4, dropout=0.0)
     pe2_jit = torch.jit.script(pe2)
     y2 = pe2_jit(x)
     assert y2.shape == (4, 1, 4)

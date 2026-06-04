@@ -1,3 +1,5 @@
+import warnings
+
 import torch
 import torch.nn as nn
 from torch import Tensor
@@ -23,13 +25,22 @@ class ScaleEmbedding(nn.Module):
 
 
 class ScaleEmbedding2(nn.Module):
-    """ScaleEmbedding"""
+    """Deprecated. Use ScaleEmbedding instead.
+
+    ScaleEmbedding2 is identical to ScaleEmbedding and will be removed in a future version.
+    """
 
     def __init__(
         self,
         num_embeddings: int,
         embedding_dim: int,
     ) -> None:
+        warnings.warn(
+            "ScaleEmbedding2 is deprecated and identical to ScaleEmbedding. "
+            "Use ScaleEmbedding instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         super().__init__()
         self.embedding = nn.Embedding(
             num_embeddings=num_embeddings,
