@@ -100,47 +100,47 @@
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 38,
+      "line": 39,
       "text": "x = x + self.pe[: x.size(0)].squeeze(1)  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 39,
+      "line": 40,
       "text": "return self.dropout(x)  # type: ignore"
-    },
-    {
-      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 41,
-      "text": "x = x + self.pe[: x.size(0)]  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
       "line": 42,
-      "text": "return self.dropout(x)  # type: ignore"
-    },
-    {
-      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 68,
       "text": "x = x + self.pe[: x.size(0)]  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 69,
+      "line": 43,
+      "text": "return self.dropout(x)  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 72,
+      "text": "x = x + self.pe[: x.size(0)]  # type: ignore"
+    },
+    {
+      "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
+      "line": 73,
       "text": "return x  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/positional_encoding.py",
-      "line": 97,
+      "line": 112,
       "text": "return self.seq(x)  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/scale_embedding.py",
-      "line": 22,
+      "line": 24,
       "text": "return self.embedding(x.long()) * self.scale  # type: ignore"
     },
     {
       "path": "packages/torch_ext/src/kitsuyui_ml/torch_ext/scale_embedding.py",
-      "line": 41,
+      "line": 52,
       "text": "return self.embedding(x.long()) * self.scale  # type: ignore"
     },
     {
@@ -150,7 +150,7 @@
     },
     {
       "path": "packages/torch_ext/tests/test_positional_encoding.py",
-      "line": 61,
+      "line": 68,
       "text": "pe_jit = torch.jit.script(pe)  # type: ignore"
     }
   ]
