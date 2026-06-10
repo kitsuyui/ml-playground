@@ -18,11 +18,19 @@ The repository tracks Python `# type: ignore` markers with [`gh-counter`](https:
 - GitHub Actions runs tests for each versions of Python. (Currently 3.10 - 3.12)
   - This range is determined by lifecycle of Python versions and libraries.
   - Python support table: https://devguide.python.org/versions/
-  - numpy support table: https://numpy.org/neps/nep-0029-deprecation_policy.html 
+  - numpy support table: https://numpy.org/neps/nep-0029-deprecation_policy.html
 - [Renovate](https://github.com/apps/renovate) continuously updates dependencies.
 - [nbmake](https://github.com/treebeardtech/nbmake) tests Jupyter ipynb files.
 
 By doing so, I will ensure that sample codes always function as samples.
+
+## Project health
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+- Report suspected vulnerabilities through [SECURITY.md](SECURITY.md), not a
+  public issue.
+- Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) when participating in issues
+  or pull requests.
 
 # Usage
 
