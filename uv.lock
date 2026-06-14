@@ -23,7 +23,7 @@ resolution-markers = [
 ]
 
 [options]
-exclude-newer = "0001-01-01T00:00:00Z" # This has no effect and is included for backwards compatibility when using relative exclude-newer values.
+exclude-newer = "2026-06-12T11:18:06.36302Z"
 exclude-newer-span = "P2D"
 
 [manifest]
@@ -1047,7 +1047,7 @@ wheels = [
 [[package]]
 name = "kitsuyui-hello"
 version = "0.7.1.dev162+gefeb54d16"
-source = { git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello#efeb54d16ae6cf819d7f2d3a2e385e75d7c60e02" }
+source = { git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello&rev=efeb54d16ae6cf819d7f2d3a2e385e75d7c60e02#efeb54d16ae6cf819d7f2d3a2e385e75d7c60e02" }
 
 [[package]]
 name = "kitsuyui-ml-animal"
@@ -1090,7 +1090,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "kitsuyui-hello", git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello" }]
+requires-dist = [{ name = "kitsuyui-hello", git = "https://github.com/kitsuyui/pypi-playground.git?subdirectory=packages%2Fkitsuyui-hello&rev=efeb54d16ae6cf819d7f2d3a2e385e75d7c60e02" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "dev-shared", editable = "packages/dev-shared" }]
