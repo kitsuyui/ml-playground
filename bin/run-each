@@ -6,6 +6,8 @@ shift
 
 # Use xargs instead find -exec to pass exit status.
 
+# dev-shared is a dev-tooling meta-package (bundles pytest/ruff/mypy) with no
+# library source code or runnable poe tasks; intentionally excluded from per-package runs.
 # shellcheck disable=SC2016
 find packages \
 -type d \
