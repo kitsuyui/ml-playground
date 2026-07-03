@@ -41,7 +41,7 @@ root = "../.."
 
 [tool.uv.sources]
 dev-shared = { workspace = true }
-kitsuyui-hello = { git = "https://github.com/kitsuyui/pypi-playground.git", subdirectory = "packages/kitsuyui-hello" }
+kitsuyui-hello = { git = "https://github.com/kitsuyui/pypi-playground.git", subdirectory = "packages/kitsuyui-hello", rev = "efeb54d16ae6cf819d7f2d3a2e385e75d7c60e02" }
 
 [tool.poe]
 include = "../dev-shared/poe.tasks.toml"
