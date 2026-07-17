@@ -68,7 +68,7 @@ def test_scale_embedding2_warning_is_visible_from_imported_module(
         encoding="utf-8",
     )
 
-    proc = subprocess.run(
+    proc = subprocess.run(  # noqa: S603 - fixed interpreter and temp script path
         [sys.executable, str(runner)],
         capture_output=True,
         text=True,
