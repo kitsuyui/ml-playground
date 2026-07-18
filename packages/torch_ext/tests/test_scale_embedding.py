@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 import torch
@@ -54,7 +55,7 @@ def test_torch_jit_ready() -> None:
 
 
 def test_scale_embedding2_warning_is_visible_from_imported_module(
-    tmp_path: pytest.TempPathFactory,
+    tmp_path: Path,
 ) -> None:
     consumer = tmp_path / "consumer.py"
     consumer.write_text(
