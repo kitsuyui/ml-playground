@@ -88,7 +88,7 @@ class PositionalEncoding2(nn.Module):
         warnings.warn(
             "PositionalEncoding2 is deprecated and equivalent to PositionalEncoding. "
             "Use PositionalEncoding instead.",
-            DeprecationWarning,
+            FutureWarning,
             stacklevel=2,
         )
         super().__init__()

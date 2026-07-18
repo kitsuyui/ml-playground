@@ -38,7 +38,7 @@ class ScaleEmbedding2(nn.Module):
         warnings.warn(
             "ScaleEmbedding2 is deprecated and identical to ScaleEmbedding. "
             "Use ScaleEmbedding instead.",
-            DeprecationWarning,
+            FutureWarning,
             stacklevel=2,
         )
         super().__init__()
